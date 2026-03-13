@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Phone Book</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form class="registbox" action="" method="POST">
+   <?php 
+   ?>
+  <h1> Registration</h1>
+ <label>Name<span style="color:red;">*</span></label> 
+<input type="text" name ="fname" class="labelname"><br>
+ <label>Username<span style="color:red;">*</span>
+ </label><input type="text" name ="usrname" class="labelname"><br>
+ <label>Email</label> <input type="text" name="email" class="labelname"><br>
+ <label>Password<span style="color:red;">*</span></label> 
+ <input type="password" name="password" class="labelname"><br>
+ <label>Confirm Password<span style="color:red;">*</span></label> 
+ <input type="password" name="cpassword" class="labelname"><br>
+ 
+  <input type="submit" value ="Register" name="submit">
+  <p class="acount"> Already have an account? please login <a href="index.php" id="reg"> Here </a>
+  
+
+  </form>
+
+</body>
+</html>

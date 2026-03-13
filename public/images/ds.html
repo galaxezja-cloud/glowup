@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Screen Company</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: green;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: green;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        header img {
+            height: 90px;
+            width: 90px;
+        }
+
+        header p {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        header a:hover {
+            color: red;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            margin-top: 80px; /* Adjust for fixed header */
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(178, 241, 233, 0.5);
+            border-radius: 20px;
+        }
+
+        .text {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: black;
+            font-size: 4vw; /* Responsive font size */
+        }
+
+        .button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: black;
+            padding: 20px;
+            color: rgb(2, 200, 2);
+        }
+
+        .pic1 {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid green;
+        }
+
+        .info1 {
+            width: 100%;
+            max-width: 700px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .services {
+            background-color: rgb(12, 12, 12);
+            padding: 20px;
+            color: rgb(2, 200, 2);
+            text-align: center;
+        }
+
+        .services img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .services h3 {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .text {
+                font-size: 6vw; /* Larger font size for smaller screens */
+            }
+
+            .info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info1 {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header p {
+                font-size: 18px;
+            }
+
+            .text {
+                font-size: 8vw; /* Even larger font size for mobile */
+            }
+        }
+    </style>
+    <script>
+        function read() {
+            document.querySelector('.info1').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="C:\Users\Mr. PY\OneDrive\Desktop\HTML5\net\fashion-company-logo-png-transparent.png" alt="Our Logo">
+        <p><b>BIG <a style="color: red;">SCREEN COMPANY</a></b></p>
+        <aside>
+            <a href="#">HOME</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">SERVICES</a>
+            <a href="#">CONTACT</a>
+        </aside>
+    </header>
+    <div class="container">
+        <img src="images/bg.jfif" alt="Background">
+        <div class="overlay"></div>
+        <div class="text">
+            <n>BIG SCREEN COMPANY</n>
+            <p>Bringing the World's best Innovations to your doorstep</p>
+        </div>
+        <button class="button" onclick="read()">Read More</button>
+    </div>
+    <section class="info">
+        <img src="images/IT1.jfif" alt="motive" class="pic1">
+        <div class="info1">
+            <h1>Welcome To Big Screen Company Limited</h1>
+            <p>Software Development: Custom software solutions tailored to meet unique business needs.<br><br>
+                Cybersecurity: Comprehensive security services to protect against digital threats.<br><br>
+                Cloud Solutions: Robust cloud infrastructure and services for seamless data management and access.<br><br>
+                Mission Statement: Our mission is to empower businesses with cutting-edge technology and exceptional service, ensuring they stay ahead in a competitive landscape.<br><br>
+                <b>|Web design| |Cybersecurity| |Cloud Computing|</b>
+            </p>
+        </div>
+    </section>
+    <aside class="services">
+        <h3>OUR SERVICES</h3>
+        <p>IT Consulting: Expert advice to help businesses align their IT strategy with their business goals and improve operational efficiency.<br><br>
+            Managed IT Services: Comprehensive management of IT infrastructure and systems, including monitoring, maintenance, and support to ensure smooth and reliable operations.<br><br>
+            Network Solutions: Design, implementation, and management of secure and scalable network infrastructures that support business connectivity and performance.<br><br>
+            Data Backup and Recovery: Solutions to ensure data integrity and availability, including regular backups and disaster recovery planning to protect against data loss.<br><br>
+            IT Support and Helpdesk Services: Responsive and knowledgeable support to assist with technical issues, troubleshooting, and user training to keep businesses running smoothly.<br><br>
+            Digital Transformation: Guidance and implementation of modern technologies such as AI, machine learning, and IoT to drive innovation and improve business processes.<br><br>
+            Website and Application Development: Creation of professional and user-friendly websites and applications tailored to meet the specific needs of businesses and their customers.<br><br>
+            IT Infrastructure Services: Design, deployment, and management of IT infrastructure, including servers, storage, and networking equipment to support business operations.
+        </p>
+        <div class="service-item">
+            <img src="images/SWE.jfif" alt="Software Engineering">
+            <h3>Software Engineering</h3>
+            <p>Integrating the best ideas in young minds<br><a href="#">Read More...</a></p>
+        </div>
+        <div class="service-item">
+            <img src="images/CS.jfif" alt="Cybersecurity">
+            <h3>Cybersecurity</h3>
+            <p>Provide the essentials to keep your system secured<br><a href="#">Read More...</a></p>
+        </div>
+        <div class="service-item">
+            <img src="images/Cloud.jfif" alt="Cloud">
+            <h3>Cloud Computing</h3>
+            <p>Integrating the best ideas in young minds<br><a href="#">Read More...</a></p>
+        </div>
+    </aside>
+    <footer>
+        <b><e style="color: black;">BIG</e> <k style="color: red;">SCREEN COMPANY LIMITED</k>&reg;2025 | All Rights reserved</b>
+    </footer>
+</body>
+</html>

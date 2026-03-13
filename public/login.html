@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowUP | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing styles... */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Trebuchet MS', sans-serif; }
+        body { background-color: #F9F5F0; color: #333; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 15px; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); width: 100%; }
+        .logo { font-size: 24px; color: #E0BFB8; font-weight: bold; }
+        nav ul { display: flex; gap: 20px; list-style: none; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 300; transition: color 0.3s; }
+        nav ul li a:hover { color: #E0BFB8; }
+        .hero { min-height: 80vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
+        .form-container { background: #FFFFFF; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); width: 100%; max-width: 500px; text-align: center; }
+        .form-container h1 { font-family: "Playwrite HU", cursive; font-size: 32px; color: #815e57; margin-bottom: 10px; }
+        .form-container p { font-size: 14px; margin-bottom: 30px; color: #666; }
+        .form-container a { color: #E0BFB8; text-decoration: none; font-style: italic; font-weight: bold; }
+        .input-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; font-size: 14px; margin-bottom: 8px; color: #815e57; font-weight: bold; }
+        .input { width: 100%; border-radius: 25px; padding: 12px 20px; border: 2px solid #F9E8CC; outline: none; font-size: 16px; transition: all 0.3s ease; background-color: #FEFDF9; }
+        .input:focus { border-color: #E0BFB8; box-shadow: 0 0 8px rgba(224, 191, 184, 0.2); }
+        .btn-submit { border-radius: 25px; border: none; padding: 15px 20px; font-size: 16px; font-weight: bold; color: white; background-color: #E0BFB8; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 20px; box-shadow: 0 4px 10px rgba(224, 191, 184, 0.3); }
+        .btn-submit:hover { background-color: #d4a89f; transform: translateY(-2px); }
+
+        /* LUXURY POPUP CSS - Crucial for the MSI not to crash */
+        #error-popup {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #815e57;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+        }
+        #error-popup.show { display: block; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">GlowUP</div>
+    <nav>
+        <ul>
+            <li><a href="Project Home Page.html">Home</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li><a href="AboutUs.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="form-container">
+        <h1>Welcome</h1>
+        <p>New member? <a href="form.html">Create Account</a></p>
+
+        <form action="/login" method="POST" id="login-form">
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="example@gmail.com" class="input" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="••••••••" class="input" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Sign In</button>
+        </form>
+    </div>
+</div>
+
+<div id="error-popup"></div>
+<script src="util.js"></script>
+<script>
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', async (e) => {
+        // 1. ANCHOR: This stops the browser from showing the raw JSON
+        e.preventDefault(); 
+        
+        const formData = new FormData(loginForm);
+        const data = Object.fromEntries(formData);
+
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                CookieManager.set("userEmail", result.email, 1);
+                window.location.href = `/Project Home Page.html?name=${encodeURIComponent(result.name)}`;
+            } else {
+                const errorPopup = document.getElementById('error-popup');
+                errorPopup.innerText = result.message;
+                errorPopup.classList.add('show');
+
+                setTimeout(() => {
+                    errorPopup.classList.remove('show');
+                    window.location.reload(); 
+                }, 3000);
+            }
+        } catch (err) {
+            console.error("Communication Breakdown:", err);
+            alert("Server is down. Check your MSI connection.");
+        }
+    });
+</script>
+</body>
+</html>

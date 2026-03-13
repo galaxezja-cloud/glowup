@@ -1,0 +1,194 @@
+The SQL SELECT Statement:
+=========================
+The SELECT statement is used to retrieve records from a database table.
+
+Example:
+SELECT * FROM chef.Category;
+
+The SQL SELECT DISTINCT Statement:
+=====================================
+The SELECT DISTINCT statement is used to return only distinct 
+(different) values.
+
+Inside a table, a column often contains many duplicate 
+values; and sometimes you only want to list the 
+different (distinct) values.
+
+The SELECT DISTINCT statement is used to return only 
+distinct (different) values.
+Example:
+SELECT DISTINCT Category from chef.Category;
+
+The SQL WHERE Clause:
+=====================
+The WHERE clause is used to filter records.
+
+The WHERE clause is used to extract only those records that fulfill a specified condition.
+Example:
+SELECT * FROM chef.Category
+WHERE Catname='Local Dishes';
+
+The SQL AND, OR and NOT Operators:
+===================================
+The WHERE clause can be combined with AND, OR, and NOT operators.
+
+The AND and OR operators are used to filter records based on more than one condition:
+
+The AND operator displays a record if all the conditions separated by AND is TRUE.
+The OR operator displays a record if any of the conditions separated by OR is TRUE.
+The NOT operator displays a record if the condition(s) is NOT TRUE.
+
+Example:
+AND
+=========
+SELECT * FROM chef.Category
+WHERE Catname='Local Dishes' AND Description='Continental Local';
+
+OR
+=========
+SELECT *FROM chef.Category
+WHERE Catname='Local Dishes' OR Catname='American Continental';
+
+NOT
+=========
+SELECT *FROM chef.Category
+WHERE NOT Catname='Local Dishes';
+
+SQL IN OPERATOR
+The SQL IN Operator allows you to specify multiple values in a WHERE clause. e.g we use it instead of using multiple OR conditions.
+Example:
+Select * FROM Education.Student
+WHERE Firstname IN('Edwin','Sherifa','Titi','Samantha');
+
+SQL BETWEEN OPERATOR:
+SQL NOT BETWEEN OPERATOR:
+It selects values within a given range.The values can be numbers,text or dates.
+Note that the BETWEEN operator includes both the begining and the end of the range values.
+Example:
+Select * from education.student 
+where studid between 2 and 5;
+
+
+
+
+The SQL ORDER BY Keyword:
+============================
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
+eX.
+SELECT * FROM chef.Category ORDER BY CATNAME;
+
+
+
+
+OFFSET
+The OFFSET argument is used to identify the starting 
+point to return rows from a result set. Basically, 
+it exclude the first set of records.
+Note:
+
+OFFSET can only be used with ORDER BY clause. 
+It cannot be used on its own.
+OFFSET value must be greater than or equal to zero. 
+It cannot be negative, else return error.
+Syntax:
+
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+ORDER BY column_name
+OFFSET rows_to_skip ROWS;
+Examples:
+Consider the following Employee table,
+
+
+
+Print Fname, Lname of all the Employee except the 
+employee having lowest salary.
+SELECT Fname, Lname
+FROM Employee
+ORDER BY Salary
+OFFSET 1 ROWS;
+Output:
+
+
+
+FETCH
+
+The FETCH argument is used to return a set 
+of number of rows. FETCH can’t be used itself, 
+it is used in conjunction with OFFSET.
+Syntax:
+
+SELECT column_name(s)
+FROM table_name
+ORDER BY column_name
+OFFSET rows_to_skip
+FETCH NEXT number_of_rows ROWS ONLY;
+Example:
+
+Print the Fname, Lname from 3rd to 6th tuple of 
+Employee table when sorted according to the Salary.
+SELECT Fname, Lname
+FROM Employee
+ORDER BY Salary
+OFFSET 2 ROWS
+FETCH NEXT 4 ROWS ONLY;
+
+
+
+
+
+Important Points:
+
+OFFSET clause is mandatory with FETCH. You can never use, 
+ORDER BY … FETCH.
+TOP cannot be combined with OFFSET and FETCH.
+The OFFSET/FETCH row count expression can be only be 
+any arithmetic, constant, or parameter expression 
+which will return an integer value.
+ORDER BY is mandatory to be used with  
+OFFSET and FETCH clause.
+OFFSET value must be greater than or equal to zero. 
+It cannot be negative, else return error.
+
+
+
+
+
+The SQL INSERT INTO Statement:
+=============================
+The INSERT INTO statement is used to insert new records in a table.
+
+INSERT INTO Syntax
+It is possible to write the INSERT INTO statement in two ways.
+
+The first way specifies both the column names and the values to be inserted:
+Example:
+INSERT INTO chef.Category (CatName,Description)
+VALUES ('Indian Dishes', 'Good meal to enjoy in india');
+
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table. The INSERT INTO syntax would be as follows:
+
+INSERT INTO chef.Category 
+VALUES ('Indian Dishes', 'Good meal to enjoy in india');
+
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+
+
+SQL GROUP BY  STATEMENT:
+============================
+This SQL statement is often used with aggregate functions such as Count,MAX,MIN,SUM,AVG) to group the record-set  by one or more columns;
+Example:
+Select COUNT(Firstname) NO_OF_STUDENT,Gender FROM Education.Student
+WHERE Firstname IN('Edwin','Sherifa','Tit','Samantha')
+GROUP BY GENDER;
+
+
+

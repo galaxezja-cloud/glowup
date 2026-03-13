@@ -1,0 +1,146 @@
+TEST1
+1.A ________ is a list of instructions for
+ the computer to follow to accomplish the task of 
+processing data into information.
+A) Systems Design
+B) Word Processor
+C) Program
+D) Systems Analysis"
+
+2.The list of instructions for the computer 
+to follow to process data into information.
+A) System
+B) Program
+C) Hardware
+D) Maintenance"
+Program
+
+3.The program's objectives, outputs, inputs, 
+and processing requirements are determined during this step.
+A) Program Documentation
+B) Program Design
+C) Program Code
+D) Program Specification"
+
+
+
+4.Program objectives, desired outputs, needed inputs, and processing requirements are all recorded in this.
+A) Program Tracking Log
+B) Project Management Database
+C) Program Specifications Document
+D) Management Information System"
+
+5.This is an outline of the logic of the program you will write.
+A) Flowcharts
+B) Pseudocode
+C) Coding
+D) Testing"
+6.Identify the programming tool that uses symbols to show the sequence of steps needed to solve a programming problem.
+A) Histogram
+B) Pseudocode
+C) Scatter Diagram
+D) Program Flowcharts"
+
+7.This is the process of testing and eliminating errors in a program.
+A) Debugging
+B) Modularizing
+C) Coding
+D) Clarifying"
+
+
+
+
+8.Which of the following refers to tools that are used to provide some assistance in designing, coding, and testing software?
+A) CAM
+B) CAD
+C) CASE
+D) OOP"
+
+
+
+9.This type of software development focuses less on the procedures and more on defining the relationships 
+between previously defined procedures.
+A) Unstructured
+B) Structured
+C) Content-Markup
+D) Object-Oriented"
+
+
+
+10.These first-generation languages are hard to use, with one of the reasons being that they are different depending on the make of the computer.
+A) Procedural
+B) Task-Oriented
+C) Natural
+D) Machine"
+
+
+
+
+11.Fifth-generation languages (5GLs) incorporate the concepts of which of the following?
+A) Object-Oriented Programming
+B) Artificial intelligence
+C) Application generators
+D) Abbreviations and mnemonics"
+
+12.Programming is also called ________ development.
+A) Logical
+B) Object-Oriented
+C) Top-Down
+D) Software"
+
+
+
+13.________ is (are) an outline of the logic of the program that will be written.
+A) Pseudocode
+B) Histograms
+C) Modules
+D) Scatter diagrams"
+
+
+14.One of the six steps of programming is writing the program, also called ________.
+A) Pseudocoding
+B) Modulation
+C) Coding
+D) Charting"
+
+
+
+15.A ________ error occurs when the programmer uses an incorrect calculation or leaves out a programming procedure.
+A) Translation
+B) Syntax
+C) Machine
+D) Logic"
+
+
+16.Activities in the program maintenance area fall under two categories: ________ and changing needs.
+A) System flowcharts
+B) Program listings
+C) Sample output
+D) Operations"
+
+
+
+17.In OOP, each ________ contains both the data and processing operations necessary to perform a task.
+A) Object
+B) Structured program
+C) Content component
+D) Unstructured program"
+
+
+TRUE or FALSE:
+
+18.A program is a list of instructions for 
+the computer to follow to process data. 
+Programming follows a six-step process known 
+as the Software Development Life Cycle (SDLC).
+
+
+
+TRUE or FALSE:
+19.C++ is an example of a machine language.
+
+TRUE or FALSE:
+20.A 5GL language incorporates the concepts of artificial intelligence to allow a person to provide a system with a problem and some constraints, and then request a solution.
+
+
+

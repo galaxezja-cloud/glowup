@@ -1,0 +1,1842 @@
+List all the SQL server editions
+Main: Enterprise, Standard, Business Intelligence, Azure SQL Database
+
+Other: Developer, Express, Compact
+
+
+What are the limitations of Express edition?
+Only 1GB memory per instance, 10GB storage per database
+
+
+Which version of SQL includes all features, including business intelligence, data warehousing, & high availability?
+Enterprise
+
+
+You have founded a new company with two friends. Your new application (app) uses a SQL Server database to store information. You are unsure whether your app will be successful but, if it is, you will need both high performance and space for large volumes of data. However, you have not yet launched, so are unsure how many people will use your app. Which edition of SQL Server should you use for this system?
+
+1) Azure SQL Database
+
+2) Enterprise edition
+
+3) Express edition
+
+4) Business Intelligence edition
+
+5) Any edition is appropriate for these requirements
+1) Azure SQL Database
+
+This version allows you to start small, and scale up as required. As a startup, using Azure SQL Database also means you do not need to buy server hardware to run SQL Server. Because Azure SQL Database is Software as a Service (SaaS), you pay for what you use, without high upfront costs.
+
+
+Which authentication methods do you use to log onto SQL server?
+Either Windows Auth or SQL Server Auth
+
+
+A colleague has asked you to run some test queries against the company's scheduling database. Administrators have given you the name of the server where the database is hosted, and the name of the database. Permissions to run the necessary queries have been granted to your Active Directory® account. You are logged on to a client computer with this Active Directory account and have started SQL Server Management Studio. What other information do you need to connect to the database?
+
+1) Your Active Directory account username.
+
+2) Your Active Directory account password.
+
+3) The name of the login created for you in the SQL Server instance.
+
+4) The name of the instance that hosts the database.
+
+5) The name of the user created for you in the SQL Server database.
+4) The name of the instance that hosts the database.
+
+You do not need to provide your Active Directory credentials because these will be sent to SQL Server automatically when you connect. This account has been associated with a login and user in SQL Server by database administrators when they granted access to your account. However, unless the database is on the default instance, you must specify which instance to connect to.
+
+
+Can a SQL Server database be stored across multiple instances?
+No. A database is completely contained within a single instance.
+
+
+What does a SQL Server Management Studio solution contain?
+SSMS allows you to organize SQL Scripts so that you can manage large collections of files. Projects can contain scripts, connection strings and other settings. Solutions are collections of projects.
+
+
+You have the following T-SQL query:
+
+SELECT HumanResources.Employees.ID, HumanResources.Employers.ID AS CompanyID,
+
+HumanResources.Employees.Name, HumanResources.Employers.Name AS CompanyName
+
+FROM HumanResources.Employees
+
+JOIN HumanResources.Employers
+
+ON HumanResources.Employees.EmployerID = HumanResources.Employers.ID;
+
+How can you improve the readability of this query?
+Use AS to create more readable aliases for the Employees and Employers tables.
+
+Always remember to consider the readability of T-SQL queries because clear queries can help to avoid coding mistakes and bugs.
+
+
+inner join
+Only returns matched records from the tables that are being joined
+
+
+outer join
+A join in which rows that do not have matching values in common columns are nevertheless included in the result table.
+
+
+cross join
+A join in which each row from one table is combined with each row from another table.
+
+
+You have a table named PoolCars and a table named Bookings in your ResourcesScheduling database. You want to return all the pool cars for which there are zero bookings. Which of the following queries should you use?
+
+1) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc, ResourcesScheduling.Bookings AS b
+
+WHERE pc.ID = b.CarID;
+
+--
+
+2) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc
+
+RIGHT OUTER JOIN ResourcesScheduling.Bookings AS b
+
+ON pc.ID = b.CarID;
+
+--
+
+3) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc
+
+JOIN ResourcesScheduling.Bookings AS b
+
+ON pc.ID = b.CarID;
+
+--
+
+4) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc
+
+LEFT OUTER JOIN ResourcesScheduling.Bookings AS b
+
+ON pc.ID = b.CarID
+
+WHERE b.BookingID IS NULL;
+4) LEFT OUTER Join
+
+If a pool car has no bookings, there will be no rows in the Bookings table for that matching CarID. When you perform a LEFT OUTER JOIN for Bookings to PoolCars, your results include all cars and all bookings for those cars. Because it is a LEFT JOIN, all cars are included even if they have no bookings. Those records, in the result set, have null values for the BookingID. By testing for these null values in the WHERE clause, you can filter out all cars with bookings and leave only those cars with no bookings.
+
+
+SELF JOIN example
+SELECT e.empid ,e.lastname AS empname,e.title,e.mgrid, m.lastname AS mgrname
+FROM HR.Employees AS e
+LEFT OUTER JOIN HR.Employees AS m
+ON e.mgrid=m.empid;
+
+
+You have two tables named FirstNames and LastNames. You want to generate a set of fictitious full names from this data. There are 150 entries in the FirstNames table and 250 entries in the LastNames table. You use the following query:
+
+SELECT (f.Name + ' ' + l.Name) AS FullName
+
+FROM FirstNames AS f
+
+CROSS JOIN LastNames AS l
+
+How many fictitious full names will be returned by this query?
+37,500 names. The CROSS JOIN returns a Cartesian product of the entries in the FirstNames and LastNames tables—150 x 250 = 37,500.
+
+
+How does an inner join differ from an outer join?
+inner = only matching rows. outer includes all rows from both tables and includes NULLS for rows where no match is found
+
+
+Which join types include a logical Cartesian product?
+inner, outer, cross
+
+
+Can a table be joined to itself?
+yes, as a self join. but you have to use an alias for at least one of the mentions of the table in the FROM clause
+
+
+You have a table named Sales with the following columns: Country, NumberOfReps, TotalSales.You want to find out the average amount of sales a sales representative makes in each country. What SELECT query could you use?
+SELECT Country, (TotalSales / NumberOfReps) AS AverageSalesPerRep
+
+FROM Sales;
+
+You can use a calculation from two columns in the Sales table to determine the average amount of sales per representative.
+
+
+you have company departments in five countries. You have the following query for the Human Resources database:
+
+SELECT DeptName, Country
+
+FROM HumanResources.Departments
+
+This returns:
+
+DeptName Country
+
+--------- --------
+
+Sales UK
+
+Sales USA
+
+Sales France
+
+Sales Japan
+
+Marketing USA
+
+Marketing Japan
+
+Research USA
+
+How many rows are returned?
+7. SELECT DISTINCT queries return all unique rows. Sales in the UK is therefore considered distinct from Sales in the USA, France, and Japan. In fact, the DISTINCT keyword makes no difference to the results for this query.
+
+
+Which of the following statements use correct column aliases? (select all that apply)
+
+1.
+
+SELECT Name AS ProductName FROM Production.Product
+
+2.
+
+SELECT Name = ProductName FROM Production.Product
+
+3.
+
+SELECT ProductName == Name FROM Production.Product
+
+4.
+
+SELECT ProductName = Name FROM Production.Product
+
+5.
+
+SELECT Name AS Product Name FROM Production.Product
+Statements 1 and 4 are correct.
+
+Statement 1 correctly uses the AS alias.
+
+Statement 2 is trying to assign the alias name to the column, which is incorrect.
+
+Statement 3 uses the double equals sign, which is not correct syntax in the T-SQL programming language.
+
+Statement 4 correctly assigns the Name column to the ProductName alias.
+
+Statement 5 is almost correct. However, there is a space between the two words in the alias, which will work if it is corrected to be [Product Name] or 'Product Name'.
+
+
+You have the following query:
+
+SELECT FirstName LastName
+
+FROM HumanResources.Employees;
+
+You are surprised to find that the query returns the following:
+
+LastName
+
+---------
+
+Fred
+
+Rosalind
+
+Anil
+
+Linda
+
+What error have you made in the SELECT query?
+forgot a comma. need to do:
+
+select firstname, lastname
+from hr.employees
+
+
+You have the following SELECT query:
+
+SELECT FirstName, LastName, Sex
+
+FROM HumanResources.Employees;
+
+This returns:
+
+FirstName LastName Sex
+
+---------- --------- ----
+
+Maya Steele 1
+
+Adam Brookes 0
+
+Naomi Sharp 1
+
+Pedro Fielder 0
+
+Zachary Parsons 0
+
+How could you make these results clearer?
+a CASE statement:
+
+select firstname, lastname,
+CASE sex
+WHEN 1 THEN 'Female'
+WHEN 0 THEN 'Male'
+ELSE 'unspecified'
+END
+From hr.Employees;
+
+
+Why is the use of SELECT * not a recommended practice?
+resource-intensive
+
+1) * asks for all columns, which is typically too much.
+
+2) Query is exposed to changes in the underlying table structure and could return unexpected results.
+
+
+From the following T-SQL elements, select the one that does not contain an expression:
+
+1) SELECT FirstName, LastName, SkillName AS Skill, GetDate() - DOB AS Age
+
+2) WHERE HumanResources.Department.ModifiedDate > (SYSDATETIME() - 31)
+
+3) JOIN HumanResources.Skills ON Employees.ID = Skills.EmployeeID
+
+4) WHERE Skill.Level + Skill.Confidence > 10
+3.
+
+An expression is a combination of identifiers, symbols, and operators that return a single result. The only element that does not contain a symbol and an operator is Option 3.
+
+
+SQL expression
+A formula or set of values that determines the exact results of an SQL query.
+
+examples: >, <>, <=, -, +
+
+
+From the following T-SQL elements, select the one that can include a predicate:
+
+WHERE clauses
+
+JOIN conditions
+
+HAVING clauses
+
+WHILE statements
+
+All of the above
+all of the above.
+
+WHERE clauses use predicates to determine which rows to return. JOIN conditions use predicates to determine which rows from different tables to join into a single result row. HAVING clauses use predicates to determine which groups to return. WHILE statements use predicates to determine when to stop executing T-SQL statements in a batch.
+
+
+SQL Predicate
+ALL, ANY, BETWEEN, IN, LIKE, OR, SOME
+
+
+(module 2 - check your knowledge #4
+
+Put the following T-SQL elements in order by numbering each to indicate the order that SQL Server will process them in when they appear in a single SELECT statement.
+
+GROUP BY
+
+
+HAVING
+
+
+FROM
+
+
+WHERE
+
+
+SELECT
+
+
+ORDER BY
+(this is the order in which SQL executes, not the order in which you write it)
+A:
+1) FROM
+2) WHERE
+3) GROUP BY
+4) HAVING
+5) SELECT
+6) ORDER BY
+
+
+Which category of T-SQL statements concerns querying and modifying data?
+Data Manipulation Language (DML).
+
+
+Data Manipulation Language (DML)
+Commands that maintain and query a database
+
+
+What are some examples of aggregate functions supported by T-SQL?
+SUM, MIN, COUNT, COUNTBIG, MAX, AVG.
+
+Aggregate functions are used in conjunction with a GROUP BY clause.
+
+
+Which SELECT statement element will be processed before a WHERE clause?
+FROM. The FROM clause is evaluated first to provide the source rows for the rest of the statement.
+
+
+what are the 5 system databases that SQL server comes with?
+master: the system configuration database.
+
+•
+
+model: the template database. SQL Server will apply any changes made in model to new databases.
+
+•
+
+msdb: used by SQL Server Agent to schedule jobs and alerts.
+
+•
+
+tempDb: a temporary store for data such as work tables. This database is dropped and recreated each time SQL Server restarts, which means that any temporary tables will be lost when SQL Server closes down.
+
+•
+
+resource: a hidden, read-only database that contains all the system objects for other databases.
+
+. The query given below will give an error. 
+Which one of the following has to be replaced 
+to get the desired output?
+
+SELECT ID, name FROM 1_Order WHERE instructor=1;
+a) _Order
+b) 2Order
+c) 3Order
+d) Instructor
+View Answer
+
+Answer: a
+Explanation: Table name should not start with numerical value as per naming convention in T-SQL.
+Sanfoundry Certification Contest of the Month is Live. 100+ Subjects. Participate Now!
+advertisement
+
+2. The following query can be replaced by which one of the following?
+
+SELECT name, course_id
+FROM instructor, teaches
+WHERE instructor_ID= teaches_ID;
+a)
+
+Check this: Programming MCQs | Information Technology Books
+SELECT name,course_id 
+FROM teaches,instructor
+WHERE instructor_id=course_id;
+b)
+
+SELECT name, course_id 
+FROM instructor NATURAL JOIN teaches;
+c)
+
+SELECT name ,course_id 
+FROM instructor;
+d)
+
+SELECT course_id 
+FROM instructor JOIN teaches;
+View Answer
+Answer: b
+Explanation: Join clause joins two tables by matching the common column.
+ 
+ 
+3. Select * from employee where salary>10000 and dept_id=101;
+Which of the following fields are displayed as output?
+a) Salary, dept_id
+b) Employee
+c) Salary
+d) All the field of employee relation
+View Answer
+
+Answer: d
+Explanation: Here * is used to select all the fields of the relation.
+4. Which of the following statements contains an error?
+a)
+
+SELECT * FROM emp 
+WHERE empid = 10003;
+b)
+
+SELECT empid 
+FROM emp 
+WHERE empid = 10006;
+c) Select empid from emp;
+d)
+
+SELECT empid 
+WHERE empid = 1009 AND lastname = ‘GELLER’;
+View Answer
+Answer: d
+Explanation: This query do not have from clause which specifies the relation from which the values has to be selected.
+ 
+ 
+5. Insert into employee _________ (1002,Joey,2000);
+In the given query which of the keyword has to be inserted?
+a) Table
+b) Values
+c) Relation
+d) Field
+View Answer
+
+Answer: b
+Explanation: Value keyword has to be used to insert the values into the table.
+6. To delete a database ___________ command is used.
+a) Delete database database_name
+b) Delete database_name
+c) drop database database_name
+d) drop database_name
+View Answer
+
+Answer: c
+Explanation: This will delete the database with its structure.
+7. The ________________ is essentially used to search for patterns in target string.
+a) Like Predicate
+b) Null Predicate
+c) In Predicate
+d) Out Predicate
+View Answer
+
+Answer: a
+Explanation: Like matches the pattern with the query.
+8. Which is a duplicate copy of a file program that is stored on a different storage media than the original location?
+a) Concurrency
+b) Deadlock
+c) Backup
+d) Recovery
+View Answer
+
+Answer: c
+Explanation: Backup is required to protect the data.
+9. _______________ joins are SQL server default.
+a) Outer
+b) Inner
+c) Equi
+d) None of the Mentioned
+View Answer
+
+Answer: b
+Explanation: Inner query joins only the rows that are matching.
+10. To alter a database ___________ command is used.
+a) ALTER database database_name
+b) ALTER database_name
+c) ALTER database database_name
+d) ALTER database_name
+View Answer
+
+Answer: c
+Explanation: ALTER Statement will alter the database structure and its related functionalities.
+
+Q.	
+Which of the following is an aggregate function in SQL?
+A.	Union
+B.	Like
+C.	Group By
+D.	Max
+Answer D
+
+Which of the following is a SQL aggregate function?
+A. LEFT
+
+B. AVG
+
+C. JOIN
+
+D. LEN
+
+Answer: Option B
+
+Sql Server Database Engine processes select statement in a logical manner.choose the best answer that 
+describes the correct Logical Query Processing Order
+Select,Order By,Where,Group By,Having,From 
+From ,Select,Where,Group By,Having,Order By
+From,Where,Group By,Having,Select,Order By 
+From,Where,Group By,Select,Having,Order By
+Answer: Option D
+
+What is the use of self join in SQL?Choose the best answer
+It is useful when you want to correlate pairs of rows from the same table, for example a parent - child relationship. The following query returns the names of all immediate subcategories of the category 'Kitchen'.
+
+SELECT T2.name
+FROM
+category T1JOIN category T2
+ON
+T2.parent = T1.id
+WHERE
+T1.name = 'Kitchen'
+
+1. Aggregate functions are functions that take a ___________ as input and return a single value.
+a) Collection of values
+b) Single value
+c) Aggregate value
+d) Both Collection of values & Single value
+View Answer
+
+Answer: a
+Explanation: None.
+2.
+
+SELECT __________
+FROM instructor
+WHERE dept name= ’Comp. Sci.’;
+Which of the following should be used to find the mean of the salary ?
+a) Mean(salary)
+b) Avg(salary)
+c) Sum(salary)
+d) Count(salary)
+View Answer B
+
+Note: Join free Sanfoundry classes at Telegram or Youtube
+advertisement
+
+3.
+
+Take Database Management System Tests Now!
+SELECT COUNT (____ ID)
+FROM teaches
+WHERE semester = ’Spring’ AND YEAR = 2010;
+If we do want to eliminate duplicates, we use the keyword ______in the aggregate expression.
+a) Distinct
+b) Count
+c) Avg
+d) Primary key
+View Answer
+
+4. All aggregate functions except _____ ignore null values in their input collection.
+a) Count(attribute)
+b) Count(*)
+c) Avg
+d) Sum
+View Answer
+
+Answer: b
+Explanation: * is used to select all values including null.
+5. A Boolean data type that can take values true, false, and________
+a) 1
+b) 0
+c) Null
+d) Unknown
+View Answer
+
+Answer: d
+Explanation: Unknown values do not take null value but it is not known.
+6. The ____ connective tests for set membership, where the set is a collection of values produced by a select clause. The ____ connective tests for the absence of set membership.
+a) Or, in
+b) Not in, in
+c) In, not in
+d) In, or
+View Answer
+
+Answer: c
+Explanation: In checks, if the query has the value but not in checks if it does not have the value.
+7. Which of the following should be used to find all the courses taught in the Fall 2009 semester but not in the Spring 2010 semester .
+a)
+
+SELECT DISTINCT course id
+FROM SECTION
+WHERE semester = ’Fall’ AND YEAR= 2009 AND
+course id NOT IN (SELECT course id
+FROM SECTION
+WHERE semester = ’Spring’ AND YEAR= 2010);
+b)
+
+SELECT DISTINCT course_id
+FROM instructor
+WHERE name NOT IN (’Fall’, ’Spring’);
+c)
+
+(SELECT course id
+FROM SECTION
+WHERE semester = ’Spring’ AND YEAR= 2010)
+d)
+
+SELECT COUNT (DISTINCT ID)
+FROM takes
+WHERE (course id, sec id, semester, YEAR) IN (SELECT course id, sec id, semester, YEAR
+FROM teaches
+WHERE teaches.ID= 10101);
+View Answer
+Answer: a
+Explanation: None.
+ 
+ 
+8. The phrase “greater than at least one” is represented in SQL by _____
+a) < all
+b) < some
+c) > all
+d) > some
+View Answer
+
+Answer: d
+Explanation: >some takes atlest one value above it .
+9. Which of the following is used to find all courses taught in both the Fall 2009 semester and in the Spring 2010 semester .
+a)
+
+SELECT course id
+FROM SECTION AS S
+WHERE semester = ’Fall’ AND YEAR= 2009 AND
+EXISTS (SELECT *
+FROM SECTION AS T
+WHERE semester = ’Spring’ AND YEAR= 2010 AND
+S.course id= T.course id);
+b)
+
+SELECT name
+FROM instructor
+WHERE salary > SOME (SELECT salary
+FROM instructor
+WHERE dept name = ’Biology’);
+c)
+
+SELECT COUNT (DISTINCT ID)
+FROM takes
+WHERE (course id, sec id, semester, YEAR) IN (SELECT course id, sec id, semester, YEAR
+FROM teaches
+WHERE teaches.ID= 10101);
+d)
+
+(SELECT course id
+FROM SECTION
+WHERE semester = ’Spring’ AND YEAR= 2010)
+View Answer
+Answer: a
+Explanation: None.
+ 
+ 
+10. We can test for the nonexistence of tuples in a subquery by using the _____ construct.
+a) Not exist
+b) Not exists
+c) Exists
+d) Exist
+View Answer
+
+Answer: b
+
+	The ____ connective tests for set membership, where the set is a collection of values produced by a select clause. The ____ connective tests for the absence of set membership.
+ A. 	In, not in
+ B. 	In, or
+ C. 	Not in, in
+ D. 	Or, in
+Answer A
+
+
+
+
+List all the SQL server editions
+Main: Enterprise, Standard, Business Intelligence, Azure SQL Database
+
+Other: Developer, Express, Compact
+
+
+What are the limitations of Express edition?
+Only 1GB memory per instance, 10GB storage per database
+
+
+Which version of SQL includes all features, including business intelligence, data warehousing, & high availability?
+Enterprise
+
+
+You have founded a new company with two friends. Your new application (app) uses a SQL Server database to store information. You are unsure whether your app will be successful but, if it is, you will need both high performance and space for large volumes of data. However, you have not yet launched, so are unsure how many people will use your app. Which edition of SQL Server should you use for this system?
+
+1) Azure SQL Database
+
+2) Enterprise edition
+
+3) Express edition
+
+4) Business Intelligence edition
+
+5) Any edition is appropriate for these requirements
+1) Azure SQL Database
+
+This version allows you to start small, and scale up as required. As a startup, using Azure SQL Database also means you do not need to buy server hardware to run SQL Server. Because Azure SQL Database is Software as a Service (SaaS), you pay for what you use, without high upfront costs.
+
+
+Which authentication methods do you use to log onto SQL server?
+Either Windows Auth or SQL Server Auth
+
+
+A colleague has asked you to run some test queries against the company's scheduling database. Administrators have given you the name of the server where the database is hosted, and the name of the database. Permissions to run the necessary queries have been granted to your Active Directory® account. You are logged on to a client computer with this Active Directory account and have started SQL Server Management Studio. What other information do you need to connect to the database?
+
+1) Your Active Directory account username.
+
+2) Your Active Directory account password.
+
+3) The name of the login created for you in the SQL Server instance.
+
+4) The name of the instance that hosts the database.
+
+5) The name of the user created for you in the SQL Server database.
+4) The name of the instance that hosts the database.
+
+You do not need to provide your Active Directory credentials because these will be sent to SQL Server automatically when you connect. This account has been associated with a login and user in SQL Server by database administrators when they granted access to your account. However, unless the database is on the default instance, you must specify which instance to connect to.
+
+
+Can a SQL Server database be stored across multiple instances?
+No. A database is completely contained within a single instance.
+
+
+What does a SQL Server Management Studio solution contain?
+SSMS allows you to organize SQL Scripts so that you can manage large collections of files. Projects can contain scripts, connection strings and other settings. Solutions are collections of projects.
+
+
+You have the following T-SQL query:
+
+SELECT HumanResources.Employees.ID, HumanResources.Employers.ID AS CompanyID,
+
+HumanResources.Employees.Name, HumanResources.Employers.Name AS CompanyName
+
+FROM HumanResources.Employees
+
+JOIN HumanResources.Employers
+
+ON HumanResources.Employees.EmployerID = HumanResources.Employers.ID;
+
+How can you improve the readability of this query?
+Use AS to create more readable aliases for the Employees and Employers tables.
+
+Always remember to consider the readability of T-SQL queries because clear queries can help to avoid coding mistakes and bugs.
+
+
+inner join
+Only returns matched records from the tables that are being joined
+
+
+outer join
+A join in which rows that do not have matching values in common columns are nevertheless included in the result table.
+
+
+cross join
+A join in which each row from one table is combined with each row from another table.
+
+
+You have a table named PoolCars and a table named Bookings in your ResourcesScheduling database. You want to return all the pool cars for which there are zero bookings. Which of the following queries should you use?
+
+1) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc, ResourcesScheduling.Bookings AS b
+
+WHERE pc.ID = b.CarID;
+
+--
+
+2) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc
+
+RIGHT OUTER JOIN ResourcesScheduling.Bookings AS b
+
+ON pc.ID = b.CarID;
+
+--
+
+3) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc
+
+JOIN ResourcesScheduling.Bookings AS b
+
+ON pc.ID = b.CarID;
+
+--
+
+4) SELECT pc.ID, pc.Make, pc.Model, pc.LicensePlate
+
+FROM ResourcesScheduling.PoolCars AS pc
+
+LEFT OUTER JOIN ResourcesScheduling.Bookings AS b
+
+ON pc.ID = b.CarID
+
+WHERE b.BookingID IS NULL;
+4) LEFT OUTER Join
+
+If a pool car has no bookings, there will be no rows in the Bookings table for that matching CarID. When you perform a LEFT OUTER JOIN for Bookings to PoolCars, your results include all cars and all bookings for those cars. Because it is a LEFT JOIN, all cars are included even if they have no bookings. Those records, in the result set, have null values for the BookingID. By testing for these null values in the WHERE clause, you can filter out all cars with bookings and leave only those cars with no bookings.
+
+
+SELF JOIN example
+SELECT e.empid ,e.lastname AS empname,e.title,e.mgrid, m.lastname AS mgrname
+FROM HR.Employees AS e
+LEFT OUTER JOIN HR.Employees AS m
+ON e.mgrid=m.empid;
+
+
+You have two tables named FirstNames and LastNames. You want to generate a set of fictitious full names from this data. There are 150 entries in the FirstNames table and 250 entries in the LastNames table. You use the following query:
+
+SELECT (f.Name + ' ' + l.Name) AS FullName
+
+FROM FirstNames AS f
+
+CROSS JOIN LastNames AS l
+
+How many fictitious full names will be returned by this query?
+37,500 names. The CROSS JOIN returns a Cartesian product of the entries in the FirstNames and LastNames tables—150 x 250 = 37,500.
+
+
+How does an inner join differ from an outer join?
+inner = only matching rows. outer includes all rows from both tables and includes NULLS for rows where no match is found
+
+
+Which join types include a logical Cartesian product?
+inner, outer, cross
+
+
+Can a table be joined to itself?
+yes, as a self join. but you have to use an alias for at least one of the mentions of the table in the FROM clause
+
+
+You have a table named Sales with the following columns: Country, NumberOfReps, TotalSales.You want to find out the average amount of sales a sales representative makes in each country. What SELECT query could you use?
+SELECT Country, (TotalSales / NumberOfReps) AS AverageSalesPerRep
+
+FROM Sales;
+
+You can use a calculation from two columns in the Sales table to determine the average amount of sales per representative.
+
+
+you have company departments in five countries. You have the following query for the Human Resources database:
+
+SELECT DeptName, Country
+
+FROM HumanResources.Departments
+
+This returns:
+
+DeptName Country
+
+--------- --------
+
+Sales UK
+
+Sales USA
+
+Sales France
+
+Sales Japan
+
+Marketing USA
+
+Marketing Japan
+
+Research USA
+
+How many rows are returned?
+7. SELECT DISTINCT queries return all unique rows. Sales in the UK is therefore considered distinct from Sales in the USA, France, and Japan. In fact, the DISTINCT keyword makes no difference to the results for this query.
+
+
+Which of the following statements use correct column aliases? (select all that apply)
+
+1.
+
+SELECT Name AS ProductName FROM Production.Product
+
+2.
+
+SELECT Name = ProductName FROM Production.Product
+
+3.
+
+SELECT ProductName == Name FROM Production.Product
+
+4.
+
+SELECT ProductName = Name FROM Production.Product
+
+5.
+
+SELECT Name AS Product Name FROM Production.Product
+Statements 1 and 4 are correct.
+
+Statement 1 correctly uses the AS alias.
+
+Statement 2 is trying to assign the alias name to the column, which is incorrect.
+
+Statement 3 uses the double equals sign, which is not correct syntax in the T-SQL programming language.
+
+Statement 4 correctly assigns the Name column to the ProductName alias.
+
+Statement 5 is almost correct. However, there is a space between the two words in the alias, which will work if it is corrected to be [Product Name] or 'Product Name'.
+
+
+You have the following query:
+
+SELECT FirstName LastName
+
+FROM HumanResources.Employees;
+
+You are surprised to find that the query returns the following:
+
+LastName
+
+---------
+
+Fred
+
+Rosalind
+
+Anil
+
+Linda
+
+What error have you made in the SELECT query?
+forgot a comma. need to do:
+
+select firstname, lastname
+from hr.employees
+
+
+You have the following SELECT query:
+
+SELECT FirstName, LastName, Sex
+
+FROM HumanResources.Employees;
+
+This returns:
+
+FirstName LastName Sex
+
+---------- --------- ----
+
+Maya Steele 1
+
+Adam Brookes 0
+
+Naomi Sharp 1
+
+Pedro Fielder 0
+
+Zachary Parsons 0
+
+How could you make these results clearer?
+a CASE statement:
+
+select firstname, lastname,
+CASE sex
+WHEN 1 THEN 'Female'
+WHEN 0 THEN 'Male'
+ELSE 'unspecified'
+END
+From hr.Employees;
+
+
+Why is the use of SELECT * not a recommended practice?
+resource-intensive
+
+1) * asks for all columns, which is typically too much.
+
+2) Query is exposed to changes in the underlying table structure and could return unexpected results.
+
+
+From the following T-SQL elements, select the one that does not contain an expression:
+
+1) SELECT FirstName, LastName, SkillName AS Skill, GetDate() - DOB AS Age
+
+2) WHERE HumanResources.Department.ModifiedDate > (SYSDATETIME() - 31)
+
+3) JOIN HumanResources.Skills ON Employees.ID = Skills.EmployeeID
+
+4) WHERE Skill.Level + Skill.Confidence > 10
+3.
+
+An expression is a combination of identifiers, symbols, and operators that return a single result. The only element that does not contain a symbol and an operator is Option 3.
+
+
+SQL expression
+A formula or set of values that determines the exact results of an SQL query.
+
+examples: >, <>, <=, -, +
+
+
+From the following T-SQL elements, select the one that can include a predicate:
+
+WHERE clauses
+
+JOIN conditions
+
+HAVING clauses
+
+WHILE statements
+
+All of the above
+all of the above.
+
+WHERE clauses use predicates to determine which rows to return. JOIN conditions use predicates to determine which rows from different tables to join into a single result row. HAVING clauses use predicates to determine which groups to return. WHILE statements use predicates to determine when to stop executing T-SQL statements in a batch.
+
+
+SQL Predicate
+ALL, ANY, BETWEEN, IN, LIKE, OR, SOME
+
+
+(module 2 - check your knowledge #4
+
+Put the following T-SQL elements in order by numbering each to indicate the order that SQL Server will process them in when they appear in a single SELECT statement.
+
+GROUP BY
+
+
+HAVING
+
+
+FROM
+
+
+WHERE
+
+
+SELECT
+
+
+ORDER BY
+(this is the order in which SQL executes, not the order in which you write it)
+A:
+1) FROM
+2) WHERE
+3) GROUP BY
+4) HAVING
+5) SELECT
+6) ORDER BY
+
+
+Which category of T-SQL statements concerns querying and modifying data?
+Data Manipulation Language (DML).
+
+
+Data Manipulation Language (DML)
+Commands that maintain and query a database
+
+
+What are some examples of aggregate functions supported by T-SQL?
+SUM, MIN, COUNT, COUNTBIG, MAX, AVG.
+
+Aggregate functions are used in conjunction with a GROUP BY clause.
+
+
+Which SELECT statement element will be processed before a WHERE clause?
+FROM. The FROM clause is evaluated first to provide the source rows for the rest of the statement.
+
+
+what are the 5 system databases that SQL server comes with?
+master: the system configuration database.
+
+•
+
+model: the template database. SQL Server will apply any changes made in model to new databases.
+
+•
+
+msdb: used by SQL Server Agent to schedule jobs and alerts.
+
+•
+
+tempDb: a temporary store for data such as work tables. This database is dropped and 
+recreated each time SQL Server restarts, which means that any temporary tables will be lost when SQL Server closes down.
+
+•
+
+resource: a hidden, read-only database that contains all the system objects for other databases.
+
+
+
+1. Which is the subset of SQL commands used to manipulate Oracle Database structures, including tables?
+a) Data Definition Language(DDL)
+b) Data Manipulation Language(DML)
+c) DML and DDL
+d) None of the Mentioned
+View Answer
+
+Answer: a
+Explanation: The DDL is used to manage table and index structure.CREATE, ALTER, RENAME, DROP and TRUNCATE statements are the names of few data definition elements.
+2. Which of the following is/are the DDL statements?
+a) Create
+b) Drop
+c) Alter
+d) All of the Mentioned
+View Answer
+
+Answer: d
+Explanation: All the mentioned commands are the part of DDL statements.
+3. In SQL, which command(s) is(are) used to change a table’s storage characteristics?
+a) ALTER TABLE
+b) MODIFY TABLE
+c) CHANGE TABLE
+d) All of the Mentioned
+View Answer
+
+Answer: a
+Explanation: To change the structure of the table we use ALTER TABLE Syntax:
+ALTER TABLE “table_name” ADD “column_name” datatype
+OR
+ALTER TABLE “table_name” DROP COLUMN “column_name”.
+Subscribe Now: Oracle Database Newsletter | Important Subjects Newsletters
+advertisement
+4. In SQL, which of the following is not a data definition language commands?
+a) RENAME
+b) REVOKE
+c) GRANT
+d) UPDATE
+View Answer
+
+Answer: a
+Explanation: With RENAME statement you can rename a table.RENAME, REVOKE and GRANT are DDL commands and UPDATE is DML command.
+5. ________clause is an additional filter that is applied to the result.
+a) Select
+b) Group-by
+c) Having
+d) Order by
+View Answer
+
+Answer: c
+Explanation: The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+Check this: Information Technology Books | Oracle Database Books
+6. ___________ defines rules regarding the values allowed in columns and is the standard mechanism for enforcing database integrity.
+a) Column
+b) Constraint
+c) Index
+d) Trigger
+View Answer
+
+Answer: b
+Explanation: SQL constraints are used to specify rules for the data in a table.If there is any violation between the constraint and the data action, the action is aborted by the constraint.
+7. SQL has how many main commands for DDL:
+a) 1
+b) 2
+c) 3
+d) 4
+View Answer
+
+Answer: c
+Explanation: Create, Delete, Alter these are 3 main command.
+8. Which command defines its columns, integrity constraint in create table:
+a) Create command
+b) Drop table command
+c) Alter table command
+d) All of the Mentioned
+View Answer
+
+Answer: a
+Explanation: The CREATE TABLE statement is used to create a table in a database.Tables are organized into rows and columns.
+9. Which command is used for removing a table and all its data from the database:
+a) Create command
+b) Drop table command
+c) Alter table command
+d) All of the Mentioned
+View Answer
+
+Answer: b
+Explanation: The DROP INDEX statement is used to delete an index in a table.
+10. Which command allows the removal of all rows from a table but flushes a table more efficiently since no rollback information is retained:
+a) TRUNCATE command
+b) Create command
+c) Drop table command
+d) Alter table command
+View Answer
+
+Answer: a
+Explanation: The SQL TRUNCATE TABLE command is used to delete complete data from an existing 
+table.You can also use DROP TABLE command to delete complete table but it would remove complete table structure 
+form the database and you would need to re-create this table once again if you wish you store some data.
+
+1. What type of join is needed when you wish to include rows that do not have matching values?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) All of the Mentioned
+View Answer
+
+Answer: c
+Explanation:OUTER JOIN is the only join which shows the unmatched rows.
+2. What type of join is needed when you wish to return rows that do have matching values?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) All of the Mentioned
+View Answer
+
+Answer: d
+Explanation: Outer join returns the row having matching as well as non matching values.
+3. Which of the following is one of the basic approaches for joining tables?
+a) Subqueries
+b) Union Join
+c) Natural join
+d) All of the Mentioned
+View Answer
+
+Answer: d
+Explanation: The SQL subquery is a SELECT query that is embedded in the main SELECT statement. In many cases, a subquery can be used instead of a JOIN.
+Note: Join free Sanfoundry classes at Telegram or Youtube
+advertisement
+
+4. The following SQL is which type of join: SELECT CUSTOMER_T. CUSTOMER_ID, ORDER_T. CUSTOMER_ID, NAME, ORDER_ID FROM CUSTOMER_T,ORDER_T WHERE CUSTOMER_T. CUSTOMER_ID = ORDER_T. CUSTOMER_ID?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) Cartesian join
+View Answer
+
+Answer: a
+Explanation: Equi-join joins only same data entry field. For example, one table contains department id and another table should contain department id.
+5. A UNION query is which of the following?
+a) Combines the output from no more than two queries and must include the same number of columns
+b) Combines the output from no more than two queries and does not include the same number of columns
+c) Combines the output from multiple queries and must include the same number of columns
+d) Combines the output from multiple queries and does not include the same number of columns
+View Answer
+
+Answer: c
+Explanation: A single UNION can combine only 2 sql query at a time.
+Take SQL Server Tests Now!
+6. Which of the following statements is true concerning subqueries?
+a) Involves the use of an inner and outer query
+b) Cannot return the same result as a query that is not a subquery
+c) Does not start with the word SELECT
+d) All of the mentioned
+View Answer
+
+Answer: a
+Explanation: Subquery—also referred to as an inner query or inner select—is a SELECT statement embedded within a data manipulation language (DML) statement or nested within another subquery.
+7. Which of the following is a correlated subquery?
+a) Uses the result of an inner query to determine the processing of an outer query
+b) Uses the result of an outer query to determine the processing of an inner query
+c) Uses the result of an inner query to determine the processing of an inner query
+d) Uses the result of an outer query to determine the processing of an outer query
+View Answer
+
+Answer: a
+Explanation: A ‘correlated subquery’ is a term used for specific types of queries in SQL in computer databases. It is a subquery (a query nested inside another query) that uses values from the outer query in its WHERE clause.
+8. How many tables may be included with a join?
+a) One
+b) Two
+c) Three
+d) All of the Mentioned
+View Answer
+
+Answer: d
+Explanation: Join can be used for more than one table. For ‘n’ tables the no of join conditions required are ‘n-1’.
+9. The following SQL is which type of join: SELECT CUSTOMER_T. CUSTOMER_ID, ORDER_T. CUSTOMER_ID, NAME, ORDER_ID FROM CUSTOMER_T,ORDER_T?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) Cartesian join
+View Answer
+
+Answer: d
+Explanation: Cartesian Join is simply the joining of one or more table which returns the product of all the rows in these tables.
+10. Which is not a type of join in T-SQL?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) Cartesian join
+View Answer
+
+Answer: b
+Explanation: A NATURAL JOIN is an inner join where the RDBMS automatically selects the 
+join columns based on common columns names. Some RDBMS 
+vendors, like Oracle but not SQL Server, implement a NATURAL JOIN operator.
+
+1. The query given below will give an error. Which one of the following has to be replaced to get the desired output?
+
+SELECT ID, name FROM 1_Order WHERE instructor=1;
+a) _Order
+b) 2Order
+c) 3Order
+d) Instructor
+View Answer
+
+Answer: a
+Explanation: Table name should not start with numerical value as per naming convention in T-SQL.
+Sanfoundry Certification Contest of the Month is Live. 100+ Subjects. Participate Now!
+advertisement
+
+2. The following query can be replaced by which one of the following?
+
+SELECT name, course_id
+FROM instructor, teaches
+WHERE instructor_ID= teaches_ID;
+a)
+
+Check this: Programming MCQs | Information Technology Books
+SELECT name,course_id 
+FROM teaches,instructor
+WHERE instructor_id=course_id;
+b)
+
+SELECT name, course_id 
+FROM instructor NATURAL JOIN teaches;
+c)
+
+SELECT name ,course_id 
+FROM instructor;
+d)
+
+SELECT course_id 
+FROM instructor JOIN teaches;
+View Answer
+Answer: b
+Explanation: Join clause joins two tables by matching the common column.
+ 
+ 
+3. Select * from employee where salary>10000 and dept_id=101;
+Which of the following fields are displayed as output?
+a) Salary, dept_id
+b) Employee
+c) Salary
+d) All the field of employee relation
+View Answer
+
+Answer: d
+Explanation: Here * is used to select all the fields of the relation.
+4. Which of the following statements contains an error?
+a)
+
+SELECT * FROM emp 
+WHERE empid = 10003;
+b)
+
+SELECT empid 
+FROM emp 
+WHERE empid = 10006;
+c) Select empid from emp;
+d)
+
+SELECT empid 
+WHERE empid = 1009 AND lastname = ‘GELLER’;
+View Answer
+Answer: d
+Explanation: This query do not have from clause which specifies the relation from which the values has to be selected.
+ 
+ 
+5. Insert into employee _________ (1002,Joey,2000);
+In the given query which of the keyword has to be inserted?
+a) Table
+b) Values
+c) Relation
+d) Field
+View Answer
+
+Answer: b
+Explanation: Value keyword has to be used to insert the values into the table.
+6. To delete a database ___________ command is used.
+a) Delete database database_name
+b) Delete database_name
+c) drop database database_name
+d) drop database_name
+View Answer
+
+Answer: c
+Explanation: This will delete the database with its structure.
+7. The ________________ is essentially used to search for patterns in target string.
+a) Like Predicate
+b) Null Predicate
+c) In Predicate
+d) Out Predicate
+View Answer
+
+Answer: a
+Explanation: Like matches the pattern with the query.
+8. Which is a duplicate copy of a file program that is stored on a different storage media than the original location?
+a) Concurrency
+b) Deadlock
+c) Backup
+d) Recovery
+View Answer
+
+Answer: c
+Explanation: Backup is required to protect the data.
+9. _______________ joins are SQL server default.
+a) Outer
+b) Inner
+c) Equi
+d) None of the Mentioned
+View Answer
+
+Answer: b
+Explanation: Inner query joins only the rows that are matching.
+10. To alter a database ___________ command is used.
+a) ALTER database database_name
+b) ALTER database_name
+c) ALTER database database_name
+d) ALTER database_name
+View Answer
+
+Answer: c
+
+1. Is “GROUP BY” clause is similar to “ORDER BY” clause?
+a) Yes
+b) No
+c) Depends
+d) None of the mentioned
+View Answer
+
+Answer: b
+Explanation: “ORDER BY” clause is used for sorting while “GROUP BY” clause is used for aggregation of fields.
+2. What is the meaning of “ORDER BY” clause in Mysql?
+a) Sorting your result set using column data
+b) Aggregation of fields
+c) Sorting your result set using row data
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: None.
+3. What is the significance of “ORDER BY” in the following MySQL statement?
+
+Subscribe Now: MySQL Newsletter | Important Subjects Newsletters
+advertisement
+
+SELECT emp_id, fname, lname
+FROM person
+ORDER BY emp_id;
+a) Data of emp_id will be sorted
+b) Data of emp_id will be sorted in descending order
+c) Data of emp_id will be sorted in ascending order
+d) All of the mentioned
+View Answer
+
+Answer: a
+Explanation: Sorting in ascending or descending order depends on keyword “DESC” and “ASC”.
+Participate in MySQL Certification Contest of the Month Now!
+4. What will be the order of sorting in the following MySQL statement?
+
+SELECT emp_id, emp_name
+FROM person
+ORDER BY emp_id, emp_name;
+a) Sorting {emp_id, emp_name}
+b) Sorting {emp_name, emp_id}
+c) Sorting (emp_id} but not emp_name
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: In the query, first “emp_id” will be sorted then emp_name with respect to emp_id.
+5. If emp_id contain the following set {9, 7, 6, 4, 3, 1, 2}, what will be the output on execution of the following MySQL statement?
+
+SELECT emp_id
+FROM person
+ORDER BY emp_id;
+a) {1, 2, 3, 4, 6, 7, 9}
+b) {2, 1, 4, 3, 7, 9, 6}
+c) {9, 7, 6, 4, 3, 1, 2}
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: “ORDER BY” clause sort the emp_id in the result set.
+6. If emp_id contain the following set {1, 2, 3, 4, 1, 1}, what will be the output on execution of the following MySQL statement?
+
+SELECT emp_id
+FROM person
+ORDER BY emp_id;
+a) {1, 1, 1, 2, 3, 4}
+b) {1, 2, 3, 4, 1, 1}
+c) {1, 1, 2, 3, 4, 1}
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: “ORDER BY” clause sort the emp_id in the result set.
+7. If emp_id contain the following set {1, 2, 2, 3, 3, 1}, what will be the output on execution of the following MySQL statement?
+
+SELECT emp_id
+FROM person
+ORDER BY emp_id;
+a) {1, 1, 2, 2, 3, 3}
+b) {1, 2, 3, 3, 2, 1}
+c) {2, 2, 1, 1, 3, 3}
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: “ORDER BY” clause sort the emp_id in the result set.
+8. If emp_id contain the following set {-1, -2, 2, 3, -3, 1}, what will be the output on execution of the following MySQL statement?
+
+SELECT emp_id
+FROM person
+ORDER BY emp_id;
+a) {-3, -2, -1, 1, 2, 3}
+b) {-1, 1, -2, 2, -3, 3}
+c) {1, 2, 3, -1, -2, -3}
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: “ORDER BY” clause sort the emp_id in the result set.
+9. Which keyword is used for sorting the data in descending order in Mysql?
+a) DESC
+b) ASC
+c) ALTER
+d) MODIFY
+View Answer
+
+Answer: a
+Explanation: None.
+10. Which keyword is used for sorting the data in ascending order in Mysql?
+a) DESC
+b) ASC
+c) ALTER
+d) MODIFY
+View Answer
+
+Answer: b
+Explanation: None.
+
+1. Which of the following is a large object data type?
+a) varchar(max)
+b) varbinary(max)
+c) nvarchar(max)
+d) image
+View Answer
+
+Answer: d
+Explanation: In SQL Server, based on their storage characteristics, some data types are designated as large value data types and large object data types.
+2. Data types in SQL Server are organized into how many categories?
+a) 6
+b) 8
+c) 9
+d) 10
+View Answer
+
+Answer: a
+Explanation: SQL Server offers six categories of data types for your use:-exact numeric, Unicode character strings, approximate numeric, Binary strings, Date and time and Character strings.
+3. Exact Numeric data type is ___________
+a) bigint
+b) int
+c) smallmoney
+d) all of the mentioned
+View Answer
+
+Answer: d
+Explanation: Exact numeric data types store numeric values where you wish to specify the precision of the variable. They may include integer or decimal numbers.
+Note: Join free Sanfoundry classes at Telegram or Youtube
+advertisement
+
+4. ntext data type falls under which category?
+a) Exact numerics
+b) Character strings
+c) Unicode character strings
+d) None of the mentioned
+View Answer
+
+Answer: c
+Explanation: ntext is fixed and variable-length data type for storing large non-Unicode and Unicode character.
+5. A column of type __________ may contain rows of different data types.
+a) ntext
+b) date
+c) smallmoney
+d) sql_variant
+View Answer
+
+Answer: d
+Explanation: sql_variant is data type that stores values of various SQL Server-supported data types.
+Take SQL Server Mock Tests - Chapterwise!
+Start the Test Now: Chapter 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+6. You want to track date and time of the last write access per row?
+a) Add TIMESTAMP column to the table
+b) Add a DATETIME column to the table and assign getdate() as the default value
+c) Add a DATETIME column to the table and write a trigger that sets its value
+d) Add a UNIQUEIDENTIFIER column to the table and use it with SQL Server’s built-in functions
+View Answer
+
+Answer: a
+Explanation: The correct answer is Add a DATETIME column to the table and write a trigger that sets its value.
+7._________ is a spatial data type.
+a) geometry
+b) sql_variant
+c) cursor
+d) all of the mentioned
+View Answer
+
+Answer: b
+Explanation: SQL Server supports the geometry and geography data types for storing spatial data. These types support methods and properties that allow for the creation, comparison, analysis, and retrieval of spatial data.
+8. Which of the following data type is not present in SQL Server?
+a) bit
+b) boolean
+c) hierarchyid
+d) geography
+View Answer
+
+Answer: b
+Explanation: SQL Server doesn’t have a Boolean data type, at least not by that name. To store True/False, Yes/No, and On/Off values, use the bit data type. It accepts only three values: 0, 1, and NULL.
+9. ______________ is monetary data type in SQL Server.
+a) Smallmoney
+b) sql_variant
+c) Cursor
+d) None of the Mentioned
+View Answer
+
+Answer: a
+Explanation: Monetary data types are data types that represent monetary or currency values such as smallmoney and money.
+10. Which of the data type has a storage size of 8 bytes?
+a) timestamp
+b) uniqueidentifier
+c) real
+d) smallmoney
+View Answer
+
+Answer: a
+Explanation: uniqueidentifier, real and smallmoney data types have storage size of 16,4 and 4 bytes respectively.
+
+
+
+1. Aggregate functions are functions that take a ___________ as input and return a single value.
+a) Collection of values
+b) Single value
+c) Aggregate value
+d) Both Collection of values & Single value
+View Answer
+
+Answer: a
+Explanation: None.
+2.
+
+SELECT __________
+FROM instructor
+WHERE dept name= ’Comp. Sci.’;
+Which of the following should be used to find the mean of the salary ?
+a) Mean(salary)
+b) Avg(salary)
+c) Sum(salary)
+d) Count(salary)
+View Answer
+
+Answer: b
+Explanation: Avg() is used to find the mean of the values.
+Note: Join free Sanfoundry classes at Telegram or Youtube
+advertisement
+
+3.
+
+Take Database Management System Tests Now!
+SELECT COUNT (____ ID)
+FROM teaches
+WHERE semester = ’Spring’ AND YEAR = 2010;
+If we do want to eliminate duplicates, we use the keyword ______in the aggregate expression.
+a) Distinct
+b) Count
+c) Avg
+d) Primary key
+View Answer
+
+Answer: a
+Explanation: Distinct keyword is used to select only unique items from the relation.
+4. All aggregate functions except _____ ignore null values in their input collection.
+a) Count(attribute)
+b) Count(*)
+c) Avg
+d) Sum
+View Answer
+
+Answer: b
+Explanation: * is used to select all values including null.
+5. A Boolean data type that can take values true, false, and________
+a) 1
+b) 0
+c) Null
+d) Unknown
+View Answer
+
+Answer: d
+Explanation: Unknown values do not take null value but it is not known.
+6. The ____ connective tests for set membership, where the set is a collection of values produced by a select clause. The ____ connective tests for the absence of set membership.
+a) Or, in
+b) Not in, in
+c) In, not in
+d) In, or
+View Answer
+
+Answer: c
+Explanation: In checks, if the query has the value but not in checks if it does not have the value.
+7. Which of the following should be used to find all the courses taught in the Fall 2009 semester but not in the Spring 2010 semester .
+a)
+
+SELECT DISTINCT course id
+FROM SECTION
+WHERE semester = ’Fall’ AND YEAR= 2009 AND
+course id NOT IN (SELECT course id
+FROM SECTION
+WHERE semester = ’Spring’ AND YEAR= 2010);
+b)
+
+SELECT DISTINCT course_id
+FROM instructor
+WHERE name NOT IN (’Fall’, ’Spring’);
+c)
+
+(SELECT course id
+FROM SECTION
+WHERE semester = ’Spring’ AND YEAR= 2010)
+d)
+
+SELECT COUNT (DISTINCT ID)
+FROM takes
+WHERE (course id, sec id, semester, YEAR) IN (SELECT course id, sec id, semester, YEAR
+FROM teaches
+WHERE teaches.ID= 10101);
+View Answer
+Answer: a
+Explanation: None.
+ 
+ 
+8. The phrase “greater than at least one” is represented in SQL by _____
+a) < all
+b) < some
+c) > all
+d) > some
+View Answer
+
+Answer: d
+Explanation: >some takes atlest one value above it .
+9. Which of the following is used to find all courses taught in both the Fall 2009 semester and in the Spring 2010 semester .
+a)
+
+SELECT course id
+FROM SECTION AS S
+WHERE semester = ’Fall’ AND YEAR= 2009 AND
+EXISTS (SELECT *
+FROM SECTION AS T
+WHERE semester = ’Spring’ AND YEAR= 2010 AND
+S.course id= T.course id);
+b)
+
+SELECT name
+FROM instructor
+WHERE salary > SOME (SELECT salary
+FROM instructor
+WHERE dept name = ’Biology’);
+c)
+
+SELECT COUNT (DISTINCT ID)
+FROM takes
+WHERE (course id, sec id, semester, YEAR) IN (SELECT course id, sec id, semester, YEAR
+FROM teaches
+WHERE teaches.ID= 10101);
+d)
+
+(SELECT course id
+FROM SECTION
+WHERE semester = ’Spring’ AND YEAR= 2010)
+View Answer
+Answer: a
+Explanation: None.
+ 
+ 
+10. We can test for the nonexistence of tuples in a subquery by using the _____ construct.
+a) Not exist
+b) Not exists
+c) Exists
+d) Exist
+View Answer
+
+Answer: b
+Explanation: Exists is used to check for the existence of tuples.
+

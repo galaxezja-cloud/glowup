@@ -1,0 +1,1203 @@
+
+1. Trigger is special type of __________ procedure.
+a) Stored
+b) Function
+c) View
+d) Table
+View Answer
+
+2. Point out the correct statement.
+a) Triggers are database object
+b) Three types of triggers are present in SQL Server
+c) A DDL trigger is an action programmed to execute when a data manipulation language (DML) event occurs in the database server
+d) None of the mentioned
+View Answer
+
+3. How many types of triggers are present in SQL Server?
+a) 4
+b) 5
+c) 8
+d) 9
+
+
+4. How many types of DML triggers are present in SQL Server?
+a) 1
+b) 3
+c) 5
+d) None of the mentioned
+View Answer
+
+
+5. Point out the wrong statement.
+a) We can have an INSTEAD OF insert/update/delete trigger on a table that successfully executed
+b) DML Triggers are used to evaluate data after data manipulation using DML statements
+c) INSTEAD OF triggers cause their source DML operation to skip
+d) AFTER triggers cause their source DML operation to skip
+View Answer
+
+6. AFTER trigger in SQL Server can be applied to _________________
+a) Table
+b) Views
+c) Table and Views
+d) Function
+View Answer
+
+7. DML triggers in SQL Server is applicable to _____________
+a) Insert
+b) Update
+c) Delete
+d) All of the mentioned
+View Answer
+
+
+8. Triggers created with FOR or AFTER keywords is _____________
+a) AFTER
+b) INSTEAD OF
+c) CLR
+d) All of the mentioned
+View Answer
+
+9. Which of the following is not a typical trigger action?
+a) Insert
+b) Select
+c) Delete
+d) All of the mentioned
+View Answer
+
+10. Triggers can be enabled or disabled with the ________ statement.
+a) ALTER TABLE statement
+b) DROP TABLE statement
+c) DELETE TABLE statement
+d) None of the mentioned
+View Answer
+
+11. Which of the following is a large object data type?
+a) varchar(max)
+b) varbinary(max)
+c) nvarchar(max)
+d) image
+View Answer
+
+12. Data types in SQL Server are organized into how many categories?
+a) 6
+b) 8
+c) 9
+d) 10
+View Answer
+
+13. Exact Numeric data type is ___________
+a) bigint
+b) int
+c) smallmoney
+d) all of the mentioned
+View Answer
+
+
+
+14. ntext data type falls under which category?
+a) Exact numerics
+b) Character strings
+c) Unicode character strings
+d) None of the mentioned
+View Answer
+
+
+15. A column of type __________ may contain rows of different data types.
+a) ntext
+b) date
+c) smallmoney
+d) sql_variant
+View Answer
+
+16. You want to track date and time of the last write access per row?
+a) Add TIMESTAMP column to the table
+b) Add a DATETIME column to the table and assign getdate() as the default value
+c) Add a DATETIME column to the table and write a trigger that sets its value
+d) Add a UNIQUEIDENTIFIER column to the table and use it with SQL Server’s built-in functions
+17._________ is a spatial data type.
+a) geometry
+b) sql_variant
+c) cursor
+d) all of the mentioned
+View Answer
+
+
+18. Which of the following data type is not present in SQL Server?
+a) bit
+b) boolean
+c) hierarchyid
+d) geography
+View Answer
+
+9. ______________ is monetary data type in SQL Server.
+a) Smallmoney
+b) sql_variant
+c) Cursor
+d) None of the Mentioned
+View Answer
+
+10. Which of the data type has a storage size of 8 bytes?
+a) timestamp
+b) uniqueidentifier
+c) real
+d) smallmoney
+View Answer
+
+
+1. ______________ function returns current date and time.
+a) SET DATEFIRST
+b) SYSDATETIME
+c) Cert_ID
+d) GETDATE
+View Answer
+
+2. Which of the following function checks whether the expression is a valid date or not?
+a) ISDATE
+b) ISDAY
+c) ISVALID
+d) ISYEAR
+3. Which of the following is not a mathematical function?
+a) ATN2
+b) POWER
+c) PI
+d) CEIL
+View Answer
+
+
+
+4. @@NESTLEVEL function falls under which of the following category?
+a) Configuration functions
+b) Cursor functions
+c) Mathematical functions
+d) Date and Time Data Functions
+View Answer
+
+
+8. Which of the following is not a conversion function?
+a) CAST and CONVERT
+b) PARSE
+c) TRY_CAST
+d) TRY_CASE
+View Answer
+
+Answer: d
+Explanation: Conversion functions support data type casting and converting.
+9. ______________ returns the rank of rows within the partition of a result set, without any gaps in the ranking.
+a) RANK
+b) NTILE
+c) DENSE_RANK
+d) ROW_NUMBER
+View Answer
+
+10. Built in Functions in SQL Server is categorized into how many categories?
+a) 4
+b) 5
+c) 6
+d) 7
+
+
+1. Which SQL function is used to count the number of rows in a SQL query?
+a) COUNT()
+b) NUMBER()
+c) SUM()
+d) COUNT(*)
+View Answer
+
+2. Which SQL keyword is used to retrieve a maximum value?
+a) MOST
+b) TOP
+c) MAX
+d) UPPER
+3. Which of the following SQL clauses is used to DELETE tuples from a database table?
+a) DELETE
+b) REMOVE
+c) DROP
+d) CLEAR
+View Answer
+
+
+
+4. ___________removes all rows from a table without logging the individual row deletions.
+a) DELETE
+b) REMOVE
+c) DROP
+d) TRUNCATE
+View Answer
+
+
+Answer: d
+Explanation: TRUNCATE statement is a Data Definition Language (DDL) operation that marks the extents of a table for deallocation.
+5. Which of the following is not a DDL command?
+a) UPDATE
+b) TRUNCATE
+c) ALTER
+d) None of the Mentioned
+6. Which of the following are TCL commands?
+a) UPDATE and TRUNCATE
+b) SELECT and INSERT
+c) GRANT and REVOKE
+d) ROLLBACK and SAVEPOINT
+7. ________________ is not a category of SQL command.
+a) TCL
+b) SCL
+c) DCL
+d) DDL
+View Answer
+
+
+8. If you don’t specify ASC or DESC after a SQL ORDER BY clause, the following is used by default ______________
+a) ASC
+b) DESC
+c) There is no default value
+d) None of the mentioned
+9. Which of the following statement is true?
+a) DELETE does not free the space containing the table and TRUNCATE free the space containing the table
+b) Both DELETE and TRUNCATE free the space containing the table
+c) Both DELETE and TRUNCATE does not free the space containing the table
+d) DELETE free the space containing the table and TRUNCATE does not free the space containing the table
+View Answer
+
+10. What is the purpose of the SQL AS clause?
+a) The AS SQL clause is used to change the name of a column in the result set or to assign a name to a derived column
+b) The AS clause is used with the JOIN clause only
+c) The AS clause defines a search condition
+d) All of the mentioned
+
+
+1. What does DML stand for?
+a) Different Mode Level
+b) Data Model Language
+c) Data Mode Lane
+d) Data Manipulation language
+2. With SQL, how do you select all the records from a table named “Persons” where the value of the column “FirstName” ends with an “a”?
+a) SELECT * FROM Persons WHERE FirstName=’a’
+b) SELECT * FROM Persons WHERE FirstName LIKE ‘a%’
+c) SELECT * FROM Persons WHERE FirstName LIKE ‘%a’
+d) SELECT * FROM Persons WHERE FirstName=’%a%’
+
+3. With SQL, how can you return all the records from a table named “Persons” sorted descending by “FirstName”?
+a) SELECT * FROM Persons SORT BY ‘FirstName’ DESC
+b) SELECT * FROM Persons ORDER FirstName DESC
+c) SELECT * FROM Persons SORT ‘FirstName’ DESC
+d) SELECT * FROM Persons ORDER BY FirstName DESC
+
+
+4. With SQL, how can you return the number of not null records in the “Persons” table?
+a) SELECT COUNT() FROM Persons
+b) SELECT COLUMNS() FROM Persons
+c) SELECT COLUMNS(*) FROM Persons
+d) SELECT COUNT(*) FROM Persons
+
+5. What does the ALTER TABLE clause do?
+a) The SQL ALTER TABLE clause modifies a table definition by altering, adding, or deleting table columns and/or constraints
+b) The SQL ALTER TABLE clause is used to insert data into database table
+c) THE SQL ALTER TABLE deletes data from database table
+d) The SQL ALTER TABLE clause is used to delete a database table
+6. The UPDATE SQL clause can _____________
+a) update only one row at a time
+b) update more than one row at a time
+c) delete more than one row at a time
+d) delete only one row at a time
+View Answer
+
+7. The UNION SQL clause can be used with _____________
+a) SELECT clause only
+b) DELETE and UPDATE clauses
+c) UPDATE clause only
+d) All of the mentioned
+View Answer
+
+
+8. Which SQL statement is used to return only different values?
+a) SELECT DIFFERENT
+b) SELECT UNIQUE
+c) SELECT DISTINCT
+d) SELECT ALL
+View Answer
+
+Answer: c
+Explanation: The SELECT DISTINCT statement is used to return only distinct (different) values.
+9. Which SQL keyword is used to sort the result-set?
+a) ORDER BY
+b) SORT
+c) ORDER
+d) SORT BY
+10. How can you change “Hansen” into “Nilsen” in the “LastName” column in the Persons table?
+a) UPDATE Persons SET LastName=’Hansen’ INTO LastName=’Nilsen’
+b) MODIFY Persons SET LastName=’Nilsen’ WHERE LastName=’Hansen’
+c) MODIFY Persons SET LastName=’Hansen’ INTO LastName=’Nilsen’
+d) UPDATE Persons SET LastName=’Nilsen’ WHERE LastName=’Hansen’
+
+1. Which of the following command makes the updates performed by the transaction permanent in the database?
+a) ROLLBACK
+b) COMMIT
+c) TRUNCATE
+d) DELETE
+View Answer
+
+2. Which TCL command undo all the updates performed by the SQL in the transaction?
+a) ROLLBACK
+b) COMMIT
+c) TRUNCATE
+d) DELETE
+View Answer
+
+3. SQL query to find all the cities whose humidity is 95.
+a) SELECT city WHERE humidity = 95
+b) SELECT city FROM weather WHERE humidity = 95
+c) SELECT humidity = 89 FROM weather
+d) SELECT city FROM weather
+
+
+4. SQL query to find the temperature in increasing order of all cities.
+a) SELECT city FROM weather ORDER BY temperature
+b) SELECT city, temperature FROM weather
+c) SELECT city, temperature FROM weather ORDER BY temperature
+d) SELECT city, temperature FROM weather ORDER BY city
+
+5. What is the meaning of LIKE ‘%0%0%’?
+a) Feature begins with two 0’s
+b) Feature ends with two 0’s
+c) Feature has more than two 0’s
+d) Feature has two 0’s in it, at any position
+
+6. Find the names of these cities with temperature and condition whose condition is neither sunny nor cloudy.
+a) SELECT city, temperature, condition FROM weather WHERE condition NOT IN (‘sunny’, ‘cloudy’)
+b) SELECT city, temperature, condition FROM weather WHERE condition NOT BETWEEN (‘sunny’, ‘cloudy’)
+c) SELECT city, temperature, condition FROM weather WHERE condition IN (‘sunny’, ‘cloudy’)
+d) SELECT city, temperature, condition FROM weather WHERE condition BETWEEN (‘sunny’, ‘cloudy’);
+ 
+7. Find the name of those cities with temperature and condition whose condition is either sunny or cloudy but temperature must be greater than 70.
+a) SELECT city, temperature, condition FROM weather WHERE condition = ‘sunny’ AND condition = ‘cloudy’ OR temperature > 70
+b) SELECT city, temperature, condition FROM weather WHERE condition = ‘sunny’ OR condition = ‘cloudy’ OR temperature > 70
+c) SELECT city, temperature, condition FROM weather WHERE condition = ‘sunny’ OR condition = ‘cloudy’ AND temperature > 70
+d) SELECT city, temperature, condition FROM weather WHERE condition = ‘sunny’ AND condition = ‘cloudy’ AND temperature > 70
+
+8. Find all the tuples having a temperature greater than ‘Paris’.
+a) SELECT * FROM weather WHERE temperature > (SELECT temperature FROM weather WHERE city = ‘Paris’
+b) SELECT * FROM weather WHERE temperature > (SELECT * FROM weather WHERE city = ‘Paris’)
+c) SELECT * FROM weather WHERE temperature > (SELECT city FROM weather WHERE city = ‘Paris’)
+d) SELECT * FROM weather WHERE temperature > ‘Paris’ temperature
+View Answer
+
+Answer: a
+Explanation: Subquery—also referred to as an inner query or inner select—is a SELECT statement embedded within a data manipulation language (DML) statement or nested within another subquery.
+9. Find all the cities with temperature, condition and humidity whose humidity is in the range of 63 to 79.
+a) SELECT * FROM weather WHERE humidity IN (63 to 79)
+b) SELECT * FROM weather WHERE humidity NOT IN (63 AND 79)
+c) SELECT * FROM weather WHERE humidity BETWEEN 63 AND 79
+d) SELECT * FROM weather WHERE humidity NOT BETWEEN 63 AND 79
+View Answer
+
+Answer: c
+Explanation: The BETWEEN operator is used to select values within a range.
+10. The command to remove rows from a table ‘CUSTOMER’ is __________________
+a) DROP FROM CUSTOMER
+b) UPDATE FROM CUSTOMER
+c) REMOVE FROM CUSTOMER
+d) DELETE FROM CUSTOMER WHERE
+
+
+1. What type of join is needed when you wish to include rows that do not have matching values?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) All of the Mentioned
+2. What type of join is needed when you wish to return rows that do have matching values?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) All of the Mentioned
+3. Which of the following is one of the basic approaches for joining tables?
+a) Subqueries
+b) Union Join
+c) Natural join
+d) All of the Mentioned
+
+
+4. The following SQL is which type of join: SELECT CUSTOMER_T. CUSTOMER_ID, ORDER_T. CUSTOMER_ID, NAME, ORDER_ID FROM CUSTOMER_T,ORDER_T WHERE CUSTOMER_T. CUSTOMER_ID = ORDER_T. CUSTOMER_ID?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) Cartesian join
+
+Explanation: Equi-join joins only same data entry field. For example, one table contains department id and another table should contain department id.
+5. A UNION query is which of the following?
+a) Combines the output from no more than two queries and must include the same number of columns
+b) Combines the output from no more than two queries and does not include the same number of columns
+c) Combines the output from multiple queries and must include the same number of columns
+d) Combines the output from multiple queries and does not include the same number of columns
+View Answer
+
+Answer: c
+Explanation: A single UNION can combine only 2 sql query at a time.
+Note: Join free Sanfoundry classes at Telegram or Youtube
+6. Which of the following statements is true concerning subqueries?
+a) Involves the use of an inner and outer query
+b) Cannot return the same result as a query that is not a subquery
+c) Does not start with the word SELECT
+d) All of the mentioned
+7. Which of the following is a correlated subquery?
+a) Uses the result of an inner query to determine the processing of an outer query
+b) Uses the result of an outer query to determine the processing of an inner query
+c) Uses the result of an inner query to determine the processing of an inner query
+d) Uses the result of an outer query to determine the processing of an outer query
+8. How many tables may be included with a join?
+a) One
+b) Two
+c) Three
+d) All of the Mentioned
+9. The following SQL is which type of join: SELECT CUSTOMER_T. CUSTOMER_ID, ORDER_T. CUSTOMER_ID, NAME, ORDER_ID FROM CUSTOMER_T,ORDER_T?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) Cartesian join
+10. Which is not a type of join in T-SQL?
+a) Equi-join
+b) Natural join
+c) Outer join
+d) Cartesian join
+
+1. What is a view?
+a) A view is a special stored procedure executed when certain event occurs
+b) A view is a virtual table which results of executing a pre-compiled query
+c) A view is a database diagram
+d) None of the Mentioned
+2. Which of the following is not a limitation of view?
+a) ORDER BY Does Not Work
+b) Index Created on View Used Often
+c) Cross Database Queries Not Allowed in Indexed View
+d) Adding Column is Expensive by Joining Table Outside View
+3. Which of the following statement is true?
+a) Views could be looked as an additional layer on the table which enables us to protect intricate or sensitive data based upon our needs
+b) Views are virtual tables that are compiled at run time
+c) Creating views can improve query response time
+d) All of the Mentioned
+View Answer
+
+
+Answer: d
+Explanation: Views are a valuable tool for the SQL Server Developer because they hide complexity and allow for a readable style of SQL expression.
+advertisement
+
+4. SQL Server has mainly how many types of views?
+a) one
+b) two
+c) three
+d) four
+View Answer
+
+
+Answer: b
+Explanation: In SQL Server we have two types of views-System Defined Views and User Defined View.
+5. Dynamic Management View is a type of ___________
+a) System Defined Views
+b) User Defined View
+c) Simple View
+d) Complex View
+View Answer
+
+Answer: a
+Explanation: Dynamic Management Views were introduced in SQL Server 2005. These Views give the administrator information of the database about the current state of the SQL Server machine.
+Note: Join free Sanfoundry classes at Telegram or Youtube
+6. Syntax for creating views is __________
+a) CREATE VIEW AS SELECT
+b) CREATE VIEW AS UPDATE
+c) DROP VIEW AS SELECT
+d) CREATE VIEW AS UPDATE
+View Answer
+
+Answer: a
+Explanation: SQL CREATE VIEW Syntax:CREATE VIEW view_name AS SELECT column_name(s) FROM table_name WHERE condition.
+7. You can delete a view with ___________ command.
+a) DROP VIEW
+b) DELETE VIEW
+c) REMOVE VIEW
+d) TRUNCATE VIEW
+8. What is SCHEMABINDING a VIEW?
+a) Schema binding binds your views to the dependent physical columns of the accessed tables specified in the contents of the view
+b) These are stored only in the Master database
+c) These types of view are defined by users on a specified schema
+d) These are used to show database self describing information
+View Answer
+
+Answer: b
+Explanation: SCHEMABINDING binds the view to the schema of the underlying table or tables. When SCHEMABINDING is specified, the base table or tables cannot be modified in a way that would affect the view definition.
+9. Which of the following is not a SQL Server INFORMATION_SCHEMA view?
+a) INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE
+b) INFORMATION_SCHEMA.DOMAIN_CONSTRAINTS
+c) INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+d) sys.dm_exec_connections
+View Answer
+
+Answer: d
+Explanation: The INFORMATION_SCHEMA views allow you to retrieve metadata about the objects within a database. These views can be found in the master database under Views / System Views and be called from any database in your SQL Server instance.
+10. ___________ is stored only in the Master database.
+a) Database-scoped Dynamic Management View
+b) Complex View
+c) Catalog View
+d) None of the mentioned
+View Answer
+
+Answer: d
+
+1. Aggregate functions are functions that take a ___________ as input and return a single value.
+a) Collection of values
+b) Single value
+c) Double value
+d) All of the mentioned
+View Answer
+
+Answer: a
+Explanation: Aggregate functions perform a calculation on a set of values.
+2. SQL applies predicates in the _______ clause after groups have been formed, so aggregate functions may be used.
+a) Group by
+b) With
+c) Where
+d) Having
+View Answer
+
+Answer: b
+Explanation: The with clause provides a way of defining a temporary relation whose definition is available only to the query in which the with clause occurs.
+3. The ________ keyword is used to access attributes of preceding tables or subqueries in the from clause.
+a) In
+b) Lateral
+c) Having
+d) With
+
+
+4. Which of the following is not an aggregate function?
+a) Avg
+b) Sum
+c) With
+d) Min
+5. If we do want to eliminate duplicates, we use the keyword __________in the aggregate expression.
+a) Distinct
+b) Count
+c) Avg
+d) Primary key
+
+6. All aggregate functions except __________ ignore null values in their input collection.
+a) Count(attribute)
+b) Count(*)
+c) Avg
+d) Sum
+View Answer
+
+Answer: a
+Explanation: * is used to select all values including null.
+7. A Boolean data type that can take values true, false, and ____________
+a) 1
+b) 0
+c) Null
+d) Unknown
+View Answer
+
+
+Answer: d
+Explanation: Unknown values do not take null value but it is not known.
+8. Which of the following should be used to find all the courses taught in the Fall 2009 semester but not in the Spring 2010 semester?
+a)
+
+SELECT DISTINCT course id 
+FROM SECTION
+WHERE semester = ’Fall’ AND YEAR= 2009 AND 
+course id NOT IN (SELECT course id FROM SECTION WHERE semester = ’Spring’ AND YEAR= 2010);
+b)
+
+SELECT DISTINCT course_id
+FROM instructor
+WHERE name NOT IN (’Fall’, ’Spring’);
+c)
+
+SELECT course id
+FROM SECTION
+WHERE semester = 'Spring' AND YEAR= 2010);
+d)
+
+SELECT COUNT (DISTINCT ID)
+FROM takes
+WHERE (course id, sec id, semester, YEAR) IN (SELECT course id, sec id, semester, YEAR
+FROM teaches
+WHERE teaches.ID= 10101);
+
+9. The phrase “greater than at least one” is represented in SQL by ___________
+a) < all
+b) < some
+c) > all
+d) > some
+View Answer
+
+Answer: d
+Explanation: > some takes at lest one value above it.
+10. We can test for the nonexistence of tuples in a subquery by using the __________ construct.
+a) Not exist
+b) Not exists
+c) Exists
+d) Exist
+
+
+1. Select __________ from instructor where dept name= ’Comp. Sci.’;
+Which of the following should be used to find the mean of the salary?
+a) Mean(salary)
+b) Avg(salary)
+c) Sum(salary)
+d) Count(salary)
+2. The ________ connective tests for set membership, where the set is a collection of values produced by a select clause. The _________ connective tests for the absence of set membership.
+a) Or, in
+b) Not in, in
+c) In, not in
+d) In, or
+View Answer
+
+Answer: c
+Explanation: In checks if the query has the value but not in checks if it does not have the value.
+3. Select ID, GPA from student grades order by GPA ____________
+Inorder to give only 10 rank on the whole we should use.
+a) Limit 10
+b) Upto 10
+c) Only 10
+d) Max 10
+View Answer
+
+
+Answer: a
+Explanation: Limit clause does not support partitioning, so we cannot get the top n within each partition without performing ranking; further, if more than one student gets the same GPA, it is possible that one is included in the top 10, while another is excluded.
+advertisement
+
+4. Suppose we are given a view tot credits (year, num credits) giving the total number of credits taken by students in each year.The query that computes averages over the 3 preceding tuples in the specified sort order is _________
+a)
+
+SELECT YEAR, avg(num credits)
+OVER (ORDER BY YEAR ROWS 3 preceding) AS avg total credits
+FROM tot credits;
+b)
+
+
+Sanfoundry Certification Contest of the Month is Live. 100+ Subjects. Participate Now!
+SELECT YEAR, avg(num credits)
+OVER (ORDER BY YEAR ROWS 3 unbounded preceding) AS avg total credits
+FROM tot credits;
+c)
+
+SELECT YEAR, MIN(num credits)
+OVER (ORDER BY YEAR ROWS 3 unbounded preceding) AS avg total credits
+FROM tot credits;
+d)
+
+SELECT YEAR, SUM(num credits)
+OVER (ORDER BY YEAR ROWS 3 unbounded preceding) AS avg total credits
+FROM tot credits;
+View Answer
+Answer: a
+Explanation: Suppose that instead of going back a fixed number of tuples, we want the window to consist of all prior years we use rows unbounded preceding.
+ 
+ 
+5. Which of the following is not the function of client?
+a) Compile queries
+b) Query optimization
+c) Receive queries
+d) Result formatting and presentation
+View Answer
+
+
+Answer: b
+Explanation: Query optimization is used to improve the quality.
+6. Which server can join the indexes when only multiple indexes combined can cover the query?
+a) SQL
+b) DBMS
+c) RDBMS
+d) All of the mentioned
+View Answer
+
+Answer: a
+Explanation: Indexing reduces the difficulty in searching the data.
+7. Select ________ dept_name from instructor;
+Here which of the following displays the unique values of the column?
+a) All
+b) From
+c) Distinct
+d) Name
+View Answer
+
+Answer: c
+Explanation: Distinct keyword selects only the entries that are unique.
+8. Select ID, name, dept name, salary * 1.1 where instructor;
+The query given below will not give an error. Which one of the following has to be replaced to get the desired output?
+a) Salary*1.1
+b) ID
+c) Where
+d) Instructor
+View Answer
+
+
+Answer: c
+Explanation: Where selects the rows on a particular condition. From gives the relation which involves the operation. Since Instructor is a relation it has to have from clause.
+9. Select * from student join takes using (ID);
+The above query is equivalent to ____________
+a) Select * from student inner join takes using (ID);
+b) Select * from student outer join takes using (ID);
+c) Select * from student left outer join takes using (ID);
+d) All of the mentioned
+View Answer
+
+Answer: a
+Explanation: Join can be replaced by inner join.
+10. The ______ clause allows us to select only those rows in the result relation of the ____ clause that satisfy a specified predicate.
+a) Where, from
+b) From, select
+c) Select, from
+d) From, where
+View Answer
+
+Answer: a
+
+1. The query given below will give an error. Which one of the following has to be replaced to get the desired output?
+
+SELECT ID, name FROM 1_Order WHERE instructor=1;
+a) _Order
+b) 2Order
+c) 3Order
+d) Instructor
+View Answer
+
+Answer: a
+Explanation: Table name should not start with numerical value as per naming convention in T-SQL.
+advertisement
+
+2. The following query can be replaced by which one of the following?
+
+
+SELECT name, course_id
+FROM instructor, teaches
+WHERE instructor_ID= teaches_ID;
+a)
+
+Sanfoundry Certification Contest of the Month is Live. 100+ Subjects. Participate Now!
+SELECT name,course_id 
+FROM teaches,instructor
+WHERE instructor_id=course_id;
+b)
+
+SELECT name, course_id 
+FROM instructor NATURAL JOIN teaches;
+c)
+
+SELECT name ,course_id 
+FROM instructor;
+d)
+
+
+SELECT course_id 
+FROM instructor JOIN teaches;
+View Answer
+Answer: b
+Explanation: Join clause joins two tables by matching the common column.
+ 
+ 
+3. Select * from employee where salary>10000 and dept_id=101;
+Which of the following fields are displayed as output?
+a) Salary, dept_id
+b) Employee
+c) Salary
+d) All the field of employee relation
+View Answer
+
+Answer: d
+Explanation: Here * is used to select all the fields of the relation.
+4. Which of the following statements contains an error?
+a)
+
+SELECT * FROM emp 
+WHERE empid = 10003;
+b)
+
+
+SELECT empid 
+FROM emp 
+WHERE empid = 10006;
+c) Select empid from emp;
+d)
+
+SELECT empid 
+WHERE empid = 1009 AND lastname = ‘GELLER’;
+View Answer
+Answer: d
+Explanation: This query do not have from clause which specifies the relation from which the values has to be selected.
+ 
+ 
+5. Insert into employee _________ (1002,Joey,2000);
+In the given query which of the keyword has to be inserted?
+a) Table
+b) Values
+c) Relation
+d) Field
+View Answer
+
+
+Answer: b
+Explanation: Value keyword has to be used to insert the values into the table.
+6. To delete a database ___________ command is used.
+a) Delete database database_name
+b) Delete database_name
+c) drop database database_name
+d) drop database_name
+View Answer
+
+Answer: c
+Explanation: This will delete the database with its structure.
+7. The ________________ is essentially used to search for patterns in target string.
+a) Like Predicate
+b) Null Predicate
+c) In Predicate
+d) Out Predicate
+View Answer
+
+Answer: a
+Explanation: Like matches the pattern with the query.
+8. Which is a duplicate copy of a file program that is stored on a different storage media than the original location?
+a) Concurrency
+b) Deadlock
+c) Backup
+d) Recovery
+View Answer
+
+
+Answer: c
+Explanation: Backup is required to protect the data.
+9. _______________ joins are SQL server default.
+a) Outer
+b) Inner
+c) Equi
+d) None of the Mentioned
+View Answer
+
+Answer: b
+Explanation: Inner query joins only the rows that are matching.
+10. To alter a database ___________ command is used.
+a) ALTER database database_name
+b) ALTER database_name
+c) ALTER database database_name
+d) ALTER database_name
+View Answer
+
+Answer: c
+
+1. The EXISTS keyword will be true if ____________
+a) Any row in the subquery meets the condition only
+b) All rows in the subquery fail the condition only
+c) Both of these two conditions are met
+d) Neither of these two conditions is met
+View Answer
+
+Answer: a
+Explanation: EXISTS keyword checks for existence of condition.
+2. Which of the following is an aggregate function?
+a) Average
+b) Sum
+c) With
+d) Minimum
+View Answer
+
+Answer: b
+Explanation: Sum is used to add set of values.
+3. The command ________________ such tables are available only within the transaction executing the query, and are dropped when the transaction finishes.
+a) Create table
+b) Create temporary table
+c) Create view
+d) Create label view
+View Answer
+
+
+Answer: b
+Explanation: DDL statement is used alter structure of table.
+advertisement
+
+4. In the query given above which one of the following is a temporary relation?
+
+WITH max_budget (VALUE) AS
+(SELECT MAX(budget)
+FROM department)
+SELECT budget
+FROM department, max_budget
+WHERE department.budget = MAX budget.value;
+a) Budget
+b) Department
+c) Value
+d) Max_budget
+View Answer
+
+
+Answer: d
+Explanation: With clause creates a temporary relation.
+Sanfoundry Certification Contest of the Month is Live. 100+ Subjects. Participate Now!
+5. Aggregate functions can be used in the select list or the_______clause of a select statement or subquery. They cannot be used in a ______ clause.
+a) Where, having
+b) Having, where
+c) Group by, having
+d) Group by, where
+View Answer
+
+Answer: b
+Explanation: To include aggregate functions having clause must be included after where.
+6. Which is the duplication of computer operations and routine backups to combat any unforeseen problems?
+a) Concurrency
+b) Deadlock
+c) Backup
+d) Recovery
+View Answer
+
+Answer: d
+Explanation: Recovery means to take the backup data while there is a crash.
+7. The UNION SQL clause can be used with ____________
+a) SELECT clause only
+b) DELETE and UPDATE clauses
+c) UPDATE clause only
+d) All of the mentioned
+View Answer
+
+
+Answer: a
+Explanation: The SQL UNION operator is used to combine the result sets of 2 or more SELECT statements. It removes duplicate rows between the various SELECT statements.
+8. Find all the tuples having temperature greater than ‘Paris’.
+a)
+
+SELECT * FROM weather
+WHERE temperature > (SELECT temperature FROM weather WHERE city = ‘Paris’
+b)
+
+SELECT * FROM weather 
+WHERE temperature > (SELECT * FROM weather WHERE city = ‘Paris’)
+c)
+
+SELECT * FROM weather 
+WHERE temperature > (SELECT city FROM weather WHERE city = ‘Paris’)
+d)
+
+SELECT * FROM weather 
+WHERE temperature > ‘Paris’ temperature
+View Answer
+Answer: a
+Explanation: Subquery—also referred to as an inner query or inner select—is a SELECT statement embedded within a data manipulation language (DML) statement or nested within another subquery.
+9. Which of the following statement is true?
+a) DELETE does not free the space containing the table and TRUNCATE free the space containing the table
+b) Both DELETE and TRUNCATE free the space containing the table
+c) Both DELETE and TRUNCATE does not free the space containing the table
+d) DELETE free the space containing the table and TRUNCATE does not free the space containing the table
+View Answer
+
+
+Answer: a
+Explanation: The SQL TRUNCATE command is used to delete all the rows from the table and free the space containing the table.
+10. How can you change “Hansen” into “Nilsen” in the “LastName” column in the Persons table?
+a)
+
+UPDATE Persons 
+SET LastName=’Hansen’ INTO LastName=’Nilsen’
+b)
+
+MODIFY Persons 
+SET LastName=’Nilsen’ WHERE LastName=’Hansen’
+c)
+
+MODIFY Persons 
+SET LastName=’Hansen’ INTO LastName=’Nilsen’
+d)
+
+UPDATE Persons 
+SET LastName=’Nilsen’ WHERE LastName=’Hansen’
+View Answer
+Answer: d
+Explanation: In its simplest form, the syntax for the UPDATE statement when updating one table is:UPDATE table SET column1 = expression1,column2 = expression2,… WHERE conditions.
+
+1. Which of the following is not a class of constraint in SQL Server?
+a) NOT NULL
+b) CHECK
+c) NULL
+d) UNIQUE
+View Answer
+
+Answer: c
+Explanation: NOT NULL specifies that the column does not accept NULL values. For more information.
+2. Point out the correct statement.
+a) CHECK constraints enforce domain integrity
+b) UNIQUE constraints enforce the uniqueness of the values in a set of columns
+c) In a UNIQUE constraint, no two rows in the table can have the same value for the columns
+d) All of the mentioned
+View Answer
+
+Answer: d
+Explanation: Constraints let you define the way the Database Engine automatically enforces the integrity of a database.
+3. Which of the following constraint does not enforce uniqueness?
+a) UNIQUE
+b) Primary key
+c) Foreign key
+d) None of the mentioned
+View Answer
+
+
+Answer: c
+Explanation: FOREIGN KEY constraints identify and enforce the relationships between tables.
+advertisement
+
+4. Constraints can be applied on ___________
+a) Column
+b) Table
+c) Field
+d) All of the mentioned
+View Answer
+
+
+Answer: d
+Explanation: Constraints can be column constraints or table constraints.
+5. Point out the wrong statement.
+a) Table constraints must be used when more than one column must be included in a constraint
+b) A column constraint is specified as part of a column definition and applies only to that column
+c) A table constraint is declared independently from a column definition and can apply to more than one column in a table
+d) Primary keys allow for NULL as one of the unique values
+View Answer
+
+Answer: d
+Explanation: Primary keys also enforce uniqueness, but primary keys do not allow for NULL as one of the unique values.
+Note: Join free Sanfoundry classes at Telegram or Youtube
+6. Purpose of foreign key constraint in SQL Server is __________
+a) FOREIGN KEY constraints identify and enforce the relationships between tables
+b) A foreign key in one table points to a candidate key in another table
+c) You cannot insert a row with a foreign key value, except NULL, if there is no candidate key with that value
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: Foreign key is to enforce referential integrity.
+7. Which of the following is not a foreign key constraint?
+a) NO ACTION
+b) CASCADE
+c) SET NULL
+d) All of the mentioned
+View Answer
+
+
+Answer: b
+Explanation: Foreign key Constraints are the built-in mechanism for enforcing data integrity.
+8. Which of the following foreign key constraint specifies that the deletion fails with an error?
+a) NO ACTION
+b) CASCADE
+c) SET NULL
+d) All of the mentioned
+View Answer
+
+Answer: a
+Explanation: The ON UPDATE clause defines the actions that are taken if you try to update a candidate key value to which existing foreign keys point.
+9. How many types of constraints are present in SQL Server?
+a) 4
+b) 5
+c) 6
+d) 7
+View Answer
+
+Answer: c
+Explanation: Constraints are Primary key, Foreign Key, Unique Key, Not Null, Check, Default.
+10. Which of the constraint can be enforced one per table?
+a) Primary key constraint
+b) Not Null constraint
+c) Foreign Key constraint
+d) Check constraint
+View Answer
+
+Answer: a
+
+1. What options did ALTER DATABASE statement add?
+a) DATABASE SNAPSHOT syntax
+b) ATTACH_REBUILD_LOG clause
+c) DB_CHAINING option
+d) READ_COMMITTED_SNAPSHOT
+View Answer
+
+Answer: d
+Explanation: ALTER DATABASE is used for instant file initialization when adding or growing data files.
+2. Which of the following item is provided by CREATE DATABASE statement?
+a) Service Broker options
+b) ALLOW_SNAPSHOT_ISOLATION
+c) DB_CHAINING
+d) Database mirroring
+View Answer
+
+Answer: a
+Explanation: CREATE DATABASE is used mainly for creating new database.
+3. Which of the following statement removes database including its related components?
+a) DROP DATABASE
+b) DELETE DATABASE
+c) REMOVE DATABASE
+d) None of the mentioned
+View Answer
+
+
+Answer: a
+Explanation: DROP statement adds support for dropping database snapshots.
+4. Which of the following database cannot be dropped?
+a) TEMPDB
+b) Master
+c) MSDB
+d) All of the mentioned
+View Answer
+
+Answer: d
+Explanation: System databases cannot be dropped.
+advertisement
+
+5. Point out the correct statement.
+a) When a database is dropped, the master database should be backed up
+b) You can drop a database currently being used
+c) Dropping a database snapshot does not delete the database snapshot from an instance of SQL Server
+d) None of the mentioned
+View Answer
+
+
+Answer: a
+Explanation: Master database records all of the system level information for a SQL Server.
+6. Which is the minimal permission that a user must have to drop the database?
+a) READ
+b) WRITE
+c) VIEW
+d) CONTROL
+View Answer
+
+Answer: d
+Explanation: To execute DROP DATABASE, at a minimum, a user must have CONTROL permission on the database.
+Sanfoundry Certification Contest of the Month is Live. 100+ Subjects. Participate Now!
+7. Which of the following statement removes sales and suppliers database?
+a) DROP DATABASE Sales, NewSales
+b) DROP DATABASE Sales, suppliers
+c) DROP DATABASE Sales and suppliers
+d) DROP DATABASE Sales-suppliers
+View Answer
+
+Answer: b
+Explanation: DROP DATABASE can be used for removing multiple databases in one statement.
+8. Which of the following statement is used to create database snapshot?
+a) CREATE DATABASE
+b) CREATE SNAPSHOT
+c) CREATE SNAPDB
+d) None of the mentioned
+View Answer
+
+
+Answer: a
+Explanation: CREATE DATABASE statement creates a new database and the files used to store the database, creates a database snapshot, or attaches a database from the detached files of a previously created database.
+9. Syntax for dropping a database snapshot named “Sushant” would be ____________
+a) DROP DATABASE Sushant
+b) DROP DATABASE SNAP Sushant
+c) DROP SNAPSHOT Sushant
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: DROP command removes database snapshot without affecting the source database.
+10. View used used for displaying current status of database is ___________
+a) system.databases
+b) current.databases
+c) sys.databases
+d) status.databases
+View Answer
+
+Answer: c
