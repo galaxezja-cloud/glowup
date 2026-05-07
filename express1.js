@@ -4,20 +4,18 @@ const crypto=require('crypto');
 const express = require('express');
 const path = require('path');
 const app = express();
-const Port =  process.env.PORT || 8000;
+const Port =  process.env.PORT || 5000;
 const fs =require('fs');
 const mysql =require('mysql2');
 const axios = require('axios');
 
 const db = mysql.createPool({
-    host: 'mysql-1c85bce-galaxezja-project.i.aivencloud.com',
-    user: 'avnadmin',
-    password: process.env.AIVEN_PASSWORD,
-    database: 'defaultdb',
-    port: 17147,
-    ssl:{
-        rejectUnauthorized: false
-    }
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  ssl: { rejectUnauthorized: false }
 });
 
 const initializePayment = async (customerEmail, finalAmount,cartItem) => {
@@ -28,16 +26,16 @@ const initializePayment = async (customerEmail, finalAmount,cartItem) => {
         amount: finalAmount * 100,
         currency: "GHS",
         reference: "PY_" + Date.now(),
-        callback_url: "http://localhost:8000/success",
+        callback_url: "http://localhost:8000/Project%20Home%20Page.html?payment=success",
         metadata:{
             cart:cartItem
         }
-    };
+    }
 
     try {
         const response = await axios.post('https://api.paystack.co/transaction/initialize', payload, {
             headers: {
-                Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`, // (Day 1)
+                Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`, 
                 'Content-Type': 'application/json'
             }
         });
@@ -60,7 +58,7 @@ const initializePayment = async (customerEmail, finalAmount,cartItem) => {
 
 db.getConnection((err, connection) => {
     if (err) {
-        console.error("CRITICAL: Database Connection Error");
+        console.error("CRITICAL: Database Connection Error",err.message);
         process.exit(1);
     } else {
         console.log("MySQL Connected  Successfully");
@@ -101,7 +99,8 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
             });
         }
     } else {
-       console.log("\n--- 🚨 SECURITY DIAGNOSTICS 🚨 ---");
+
+       console.log("\n--- 🚨 SECUR ITY DIAGNOSTICS 🚨 ---");
         console.log("Fake Webhook Attempt Blocked. Locks did not match.");
         console.log("1. Paystack's Lock :", req.headers['x-paystack-signature']);
         console.log("2. Our Server Lock :", hash);
@@ -258,19 +257,7 @@ app.post('/pay', async (req, res) => {
     }
 });
 app.get('/success', (req,res) => {
-      res.send(`<html>
-        <body style="background-color: #F9F5F0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: 'Trebuchet MS', sans-serif;">
-            <h1 style="color: #815e57;">Payment Successful! 🎉</h1>
-            <p style="color: #333;">Thank you for your GlowUP purchase.</p>
-            <p style="color: #666; font-size: 14px;">Redirecting you back to the shop...</p>
-            <script>
-                // Automatically send them back to the home page after 4 seconds
-                setTimeout(() => {
-                    window.location.href = '/Project Home Page.html';
-                }, 4000);
-            </script>
-        </body>
-    </html>`);
+      res.send(`'/Project Home Page.html?payment=sucess`);
 });
 app.get('/build-cloud', (req, res) => {
     // 1. The Users Vault Blueprint

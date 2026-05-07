@@ -7,12 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap" rel="stylesheet">
+    
     <style>
-        /* Your existing styles... */
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Trebuchet MS', sans-serif; }
         body { background-color: #F9F5F0; color: #333; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 15px; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); width: 100%; }
-        .logo { font-size: 24px; color: #E0BFB8; font-weight: bold; }
+        .logo { font-size: 24px; color: #815e57; font-weight: bold; }
         nav ul { display: flex; gap: 20px; list-style: none; }
         nav ul li a { text-decoration: none; color: #333; font-weight: 300; transition: color 0.3s; }
         nav ul li a:hover { color: #E0BFB8; }
@@ -20,7 +21,7 @@
         .form-container { background: #FFFFFF; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); width: 100%; max-width: 500px; text-align: center; }
         .form-container h1 { font-family: "Playwrite HU", cursive; font-size: 32px; color: #815e57; margin-bottom: 10px; }
         .form-container p { font-size: 14px; margin-bottom: 30px; color: #666; }
-        .form-container a { color: #E0BFB8; text-decoration: none; font-style: italic; font-weight: bold; }
+        .form-container a { color: #815e57; text-decoration: none; font-style: italic; font-weight: bold; }
         .input-group { text-align: left; margin-bottom: 20px; }
         label { display: block; font-size: 14px; margin-bottom: 8px; color: #815e57; font-weight: bold; }
         .input { width: 100%; border-radius: 25px; padding: 12px 20px; border: 2px solid #F9E8CC; outline: none; font-size: 16px; transition: all 0.3s ease; background-color: #FEFDF9; }
@@ -48,14 +49,16 @@
 <body>
 
 <header>
-    <div class="logo">GlowUP</div>
-    <nav>
-        <ul>
-            <li><a href="Project Home Page.html">Home</a></li>
-            <li><a href="Shop.html">Shop</a></li>
-            <li><a href="AboutUs.html">About</a></li>
-        </ul>
-    </nav>
+    <div class="nav-left">
+        <div class="menu-container" onclick="toggleNav()">
+            <div class="hamburger-lines"></div>
+        </div>
+    </div>
+    
+    <div class="logo" onclick="logo()">GlowUP</div>
+    
+        <div id="avatar"><span id="avatar-letter"></span></div>
+    </div>
 </header>
 
 <div class="hero">
@@ -85,7 +88,6 @@
     const loginForm = document.getElementById('login-form');
 
     loginForm.addEventListener('submit', async (e) => {
-        // 1. ANCHOR: This stops the browser from showing the raw JSON
         e.preventDefault(); 
         
         const formData = new FormData(loginForm);

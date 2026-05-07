@@ -32,7 +32,7 @@
 
         .logo {
             font-size: 24px;
-            color: #E0BFB8;
+            color: #815e57;
             font-weight: bold;
         }
 
@@ -143,14 +143,16 @@
 <body>
 
 <header>
-    <div class="logo">GlowUP</div>
-    <nav>
-        <ul>
-            <li><a href="Project Home Page.html">Home</a></li>
-            <li><a href="Shop.html">Shop</a></li>
-            <li><a href="AboutUs.html">About</a></li>
-        </ul>
-    </nav>
+    <div class="nav-left">
+        <div class="menu-container" onclick="toggleNav()">
+            <div class="hamburger-lines"></div>
+        </div>
+    </div>
+    
+    <div class="logo" onclick="logo()">GlowUP</div>
+    
+        <div id="avatar"><span id="avatar-letter"></span></div>
+    </div>
 </header>
 
 <div class="hero">
