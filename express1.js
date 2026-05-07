@@ -8,6 +8,7 @@ const Port =  process.env.PORT || 5000;
 const fs =require('fs');
 const mysql =require('mysql2');
 const axios = require('axios');
+const host = `${req.protocol}://${req.get('host')}`;
 
 const db = mysql.createPool({
   host: process.env.DB_HOST,
@@ -26,7 +27,7 @@ const initializePayment = async (customerEmail, finalAmount,cartItem) => {
         amount: finalAmount * 100,
         currency: "GHS",
         reference: "PY_" + Date.now(),
-        callback_url: "http://localhost:8000/Project%20Home%20Page.html?payment=success",
+        callback_url: `${host}/Project%20Home%20Page.html?payment=success`,
         metadata:{
             cart:cartItem
         }
@@ -243,6 +244,9 @@ app.post('/login', (req, res) => {
 });
 app.post('/pay', async (req, res) => {
     try {
+
+        const host = `${req.protocol}://${req.get('host')}`;
+        
         const dynamicEmail = req.body.email;
         const dynamicAmount = req.body.amount;
         const dynamicCart = req.body.cart;
