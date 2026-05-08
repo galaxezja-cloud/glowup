@@ -27,7 +27,7 @@ const initializePayment = async (customerEmail, finalAmount,cartItem) => {
         amount: finalAmount * 100,
         currency: "GHS",
         reference: "PY_" + Date.now(),
-        callback_url: `${host}/Project%20Home%20Page.html?payment=success`,
+        callback_url: `${host}/index.html?payment=success`,
         metadata:{
             cart:cartItem
         }
