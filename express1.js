@@ -205,7 +205,7 @@ app.post('/create-account', async (req, res) => {
 
             <script>
                 setTimeout(() => {
-                    window.location.href = '/Project Home Page.html';
+                    window.location.href = '/index.html';
                 }, 10000);
             </script>
             `);
@@ -261,7 +261,7 @@ app.post('/pay', async (req, res) => {
     }
 });
 app.get('/success', (req,res) => {
-      res.send(`'/Project Home Page.html?payment=sucess`);
+      res.send(`'/index.html?payment=sucess`);
 });
 app.get('/build-cloud', (req, res) => {
     // 1. The Users Vault Blueprint
@@ -299,4 +299,3 @@ app.get('/build-cloud', (req, res) => {
 app.listen(Port, () => {
     console.log(`GlowUP Backend active on http://localhost:${Port}`);
 });
-
