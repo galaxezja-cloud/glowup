@@ -19,7 +19,7 @@ const db = mysql.createPool({
   ssl: { rejectUnauthorized: false }
 });
 
-const initializePayment = async (customerEmail, finalAmount,cartItem) => {
+const initializePayment = async (customerEmail, finalAmount,cartItem,host) => {
     
 
     const payload = {
@@ -251,7 +251,7 @@ app.post('/pay', async (req, res) => {
         const dynamicAmount = req.body.amount;
         const dynamicCart = req.body.cart;
 
-        const paymentDoorUrl = await initializePayment(dynamicEmail, dynamicAmount,dynamicCart);
+        const paymentDoorUrl = await initializePayment(dynamicEmail, dynamicAmount,dynamicCart,host);
         
         res.json({ doorUrl: paymentDoorUrl });
 
