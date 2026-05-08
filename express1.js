@@ -8,7 +8,7 @@ const Port =  process.env.PORT || 5000;
 const fs =require('fs');
 const mysql =require('mysql2');
 const axios = require('axios');
-const host = `${req.protocol}://${req.get('host')}`;
+
 
 const db = mysql.createPool({
   host: process.env.DB_HOST,
